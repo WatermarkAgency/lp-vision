@@ -10,6 +10,19 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
+const query = graphql`
+{
+  pages: allContentfulLandingPages {
+    edges {
+      node {
+        slug
+        title
+      }
+    }
+  }
+}
+`
+
 const SEO = ({ description, lang, title, path, slug }) => {
   const { site } = useStaticQuery(query);
   const slugVar = !slug || slug === "/" ? "" : slug;

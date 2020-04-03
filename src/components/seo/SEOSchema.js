@@ -3,6 +3,19 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { graphql, useStaticQuery } from "gatsby";
 
+const query = graphql`
+{
+  pages: allContentfulLandingPages {
+    edges {
+      node {
+        slug
+        title
+      }
+    }
+  }
+}
+`
+
 const Schema = ({ graphs }) => {
   const { meta, options, people } = useStaticQuery(query);
 

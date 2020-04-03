@@ -12,7 +12,7 @@ export default ({ pageContext }) => {
       RenderThis = <HomePage /> 
       break;
     default:
-      RenderThis = <h2>No Page template for <em>{pageContext.slug}</em> route! {console.log(pageContext)}</h2>
+      // RenderThis = <h2>No Page template for <em>{pageContext.slug}</em> route! {console.log(pageContext)}</h2>
   }
   return (
     <Layout>
