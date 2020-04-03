@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
     redirectInBrowser: true
   });
   const pageTemplate = path.resolve("./src/node/page.js");
+  const tyTemplate = path.resolve("./src/node/ty.js");
   createRedirect({
     fromPath: "/home",
     toPath: `/`,
@@ -33,6 +34,14 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      thanks: allContentfulThankYouPages {
+        edges {
+          node {
+            slug
+            title
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
@@ -43,8 +52,18 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.pages.edges.forEach(edge => {
       createPage({
         // Path for this page — required
-        path: `${edge.node.slug}`,
+        path: `lp/${edge.node.slug}`,
         component: pageTemplate,
+        context: edge.node
+      });
+    });
+
+    // Create site pages
+    result.data.thanks.edges.forEach(edge => {
+      createPage({
+        // Path for this page — required
+        path: `ty/${edge.node.slug}`,
+        component: tyTemplate,
         context: edge.node
       });
     });

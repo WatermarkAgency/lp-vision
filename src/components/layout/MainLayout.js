@@ -7,37 +7,29 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+// import { useStaticQuery, graphql } from "gatsby";
 import { MainLayout } from "wmk-lib";
+import styled from 'styled-components'
 
-import Header from "./Header/Header";
+import VisionHeader from "./Header/VisionHeader"
+import VisionFooter from "./Footer/VisionFooter";
+
+const Wrap = styled.div`
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+`
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
-    <>
+    <Wrap>
       <MainLayout
-        Header={() => <Header siteTitle={data.site.siteMetadata.title} />}
-        Footer={() => (
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        )}
+        Header={() => <VisionHeader />}
+        Footer={() => <VisionFooter />}
       >
         {children}
       </MainLayout>
-    </>
+    </Wrap>
   );
 };
 
