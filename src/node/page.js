@@ -1,23 +1,75 @@
 import React from "react";
 import Layout from "../components/layout/MainLayout";
-import HomePage from '../components/routes/Home/Home'
+import { graphql } from "gatsby";
+import { Container, Row, Col } from "react-bootstrap";
+import TYHero from "../components/routes/ThankYou/ThankYouHero";
+import styled from "styled-components";
+import SharpSpringForm from "../components/common/SharpForm";
 
-export default ({ pageContext }) => {
-  // const blocks = data.wordpressPage.acf ? data.wordpressPage.acf.block_page : null;
-  // const yoast = data.wordpressPage.yoast_meta
-  let RenderThis = null;
-  const route = pageContext.slug
-  switch(route){
-    case('home'):
-      RenderThis = <HomePage /> 
-      break;
-    default:
-      // RenderThis = <h2>No Page template for <em>{pageContext.slug}</em> route! {console.log(pageContext)}</h2>
+const MessageWrap = styled(Container)`
+  background: #f5f5f5;
+  .message {
+    padding: 6vw 0;
+    margin: auto;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
+`;
+
+export default ({ pageContext, data }) => {
+  const { lp } = data;
+  const { headline, image, message, code } = lp;
+  const { copy } = message ? message : { copy: null };
   return (
     <Layout>
-      {RenderThis}
+      <TYHero bgImage={image} headline={headline} />
+      <MessageWrap fluid>
+        <Container>
+          <Row className="flex-column">
+            <Col>
+              <div className="message">{copy}</div>
+            </Col>
+            <Col>
+              <SharpSpringForm
+                account={code.account}
+                formID={code.formID}
+                formDomain={code.formDomain}
+                scriptSrc={code.scriptSrc}
+                title={code.title}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </MessageWrap>
     </Layout>
   );
 };
 
+export const query = graphql`
+  query pageQuery($slug: String!) {
+    lp: contentfulLandingPages(slug: { eq: $slug }) {
+      slug
+      title
+      headline
+      image: backgroundImage {
+        fluid(maxWidth: 1600, quality: 90) {
+          ...GatsbyContentfulFluid
+        }
+        title
+      }
+      message {
+        copy: message
+      }
+      code: marketingAutomationForm {
+        title
+        scriptSrc
+        formId
+        formDomain
+        account
+      }
+    }
+  }
+`;

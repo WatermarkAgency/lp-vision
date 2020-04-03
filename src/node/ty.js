@@ -38,7 +38,7 @@ export default ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
+  query lpQuery($slug: String!) {
     ty: contentfulThankYouPages(slug: { eq: $slug }) {
       slug
       title

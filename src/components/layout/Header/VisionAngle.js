@@ -12,7 +12,7 @@ const VisionAngle = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  });
+  },[stopLoop]);
 
   const handleResize = () => {
     const width = window.outerWidth;
