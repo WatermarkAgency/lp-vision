@@ -135,6 +135,9 @@ const Theme = new ThemeOptions({
     },
     reverse: {
       hex: "#fefefe"
+    },
+    orange: {
+      hex: "#F15C2B"
     }
   },
   paths: {
