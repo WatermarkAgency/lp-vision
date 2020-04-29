@@ -32,15 +32,15 @@ export default ({ pageContext, data }) => {
             <Col>
               <div className="message">{copy}</div>
             </Col>
-            {/* <Col>
-              <SharpSpringForm
+            <Col>
+              {/* <SharpSpringForm
                 account={code.account}
                 formID={code.formID}
                 formDomain={code.formDomain}
                 scriptSrc={code.scriptSrc}
                 title={code.title}
-              />
-            </Col> */}
+              /> */}
+            </Col>
           </Row>
         </Container>
       </MessageWrap>
@@ -49,26 +49,22 @@ export default ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
-    lp: contentfulLandingPages(slug: { eq: $slug }) {
-      slug
+  query pageAngledQuery($slug: String!) {
+    lp: contentfulLandingPagesAngled(slug: { eq: $slug }) {
       title
-      headline
-      image: backgroundImage {
-        fluid(maxWidth: 1600, quality: 90) {
+      slug
+      pageTitleFirstLine
+      pageTitleSecondLine
+      pageSubtitle
+      mainCopy {
+        json
+      }
+      buttonText
+      formCopy
+      bookPreviewPages {
+        fluid {
           ...GatsbyContentfulFluid
         }
-        title
-      }
-      message {
-        copy: message
-      }
-      code: marketingAutomationForm {
-        title
-        scriptSrc
-        formId
-        formDomain
-        account
       }
     }
   }
