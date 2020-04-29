@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, actions }) => {
     redirectInBrowser: true
   });
   const pageTemplate = path.resolve("./src/node/page.js");
+  const pageAngledTemplate = path.resolve("./src/node/pageAngled.js")
   const tyTemplate = path.resolve("./src/node/ty.js");
   createRedirect({
     fromPath: "/home",
@@ -27,6 +28,14 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(`
     {
       pages: allContentfulLandingPages {
+        edges {
+          node {
+            slug
+            title
+          }
+        }
+      }
+      pagesAngled: allContentfulLandingPagesAngled {
         edges {
           node {
             slug
@@ -54,6 +63,16 @@ exports.createPages = ({ graphql, actions }) => {
         // Path for this page — required
         path: `lp/${edge.node.slug}`,
         component: pageTemplate,
+        context: edge.node
+      });
+    });
+
+    // Create angled site pages
+    result.data.pagesAngled.edges.forEach(edge => {
+      createPage({
+        // Path for this page — required
+        path: `lp/${edge.node.slug}`,
+        component: pageAngledTemplate,
         context: edge.node
       });
     });
