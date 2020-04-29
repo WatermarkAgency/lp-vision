@@ -2,50 +2,72 @@ import React from "react";
 import { CtflLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
-import VisionAngle from "./VisionAngle";
+import Theme from "../../../../vars/ThemeOptions"
 
 const HeaderWrap = styled.div`
 position: relative;
-.angle {
-    position: absolute;
-    opacity: .85;
-}
 `;
 
 const Wrap = styled.div`
-  padding: 4vh 6vw;
+  position: relative;
+  z-index: 100;
+  .inner-wrap {
+    position: relative;
+    z-index: 10;
+    padding: 4vh 6vw 2vh 6vw;
+    background: ${Theme.hex('orange')};
+    clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
+    .logo-wrap {
+      width: 200px;
+      height: 100px;
+    }
+  }
+  .dark-bot-border {
+    position: absolute;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 8%;
+    background: gray;
+    clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
+  }
 `;
 
 const VisionHeader = () => {
   const { options } = useStaticQuery(graphql`
     {
       options: contentfulGlobal {
-        logo {
+        logoWhite {
           file {
             contentType
             url
           }
-          fixed(width: 267, height: 67) {
-            ...GatsbyContentfulFixed
+          fluid {
+            ...GatsbyContentfulFluid
           }
           title
         }
       }
     }
   `);
-  const { logo } = options;
+  const { logoWhite } = options;
   return (
     <HeaderWrap>
       <Wrap>
-        <CtflLogo
-          contentType={logo.file.contentType}
-          fixed={logo.fixed}
-          alt={logo.title}
-          target="_self"
-          to={"https://visiongraphics-inc.com/"}
-        />
+        <div className="inner-wrap">
+          <div className="logo-wrap">
+            <CtflLogo
+              contentType={logoWhite.file.contentType}
+              fluid={logoWhite.fluid}
+              alt={logoWhite.title}
+              target="_self"
+              to={"https://visiongraphics-inc.com/"}
+            />
+          </div>
+        </div>
+        <div className="dark-bot-border" />
       </Wrap>
-      <VisionAngle />
     </HeaderWrap>
   );
 };
