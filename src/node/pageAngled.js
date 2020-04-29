@@ -1,8 +1,7 @@
 import React from "react";
-import Layout from "../components/layout/MainLayout";
+import Layout from "../components/layout/AngledLayout/AngledLayout";
 import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
-import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
 // import SharpSpringForm from "../components/common/SharpForm";
 
@@ -21,11 +20,11 @@ const MessageWrap = styled(Container)`
 
 export default ({ pageContext, data }) => {
   const { lp } = data;
+  console.log(data)
   const { headline, image, message, code } = lp;
   const { copy } = message ? message : { copy: null };
   return (
     <Layout>
-      <TYHero bgImage={image} headline={headline} />
       <MessageWrap fluid>
         <Container>
           <Row className="flex-column">

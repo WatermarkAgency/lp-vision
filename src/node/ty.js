@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout/MainLayout";
+import Layout from "../components/layout/MainLayout/MainLayout";
 import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
