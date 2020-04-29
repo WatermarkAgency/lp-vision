@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
-import SharpSpringForm from "../components/common/SharpForm";
+// import SharpSpringForm from "../components/common/SharpForm";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -33,13 +33,13 @@ export default ({ pageContext, data }) => {
               <div className="message">{copy}</div>
             </Col>
             <Col>
-              <SharpSpringForm
+              {/* <SharpSpringForm
                 account={code.account}
                 formID={code.formID}
                 formDomain={code.formDomain}
                 scriptSrc={code.scriptSrc}
                 title={code.title}
-              />
+              /> */}
             </Col>
           </Row>
         </Container>
@@ -49,7 +49,7 @@ export default ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
+  query pageAngledQuery($slug: String!) {
     lp: contentfulLandingPagesAngled(slug: { eq: $slug }) {
       title
       slug

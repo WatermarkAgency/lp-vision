@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
-import SharpSpringForm from "../components/common/SharpForm";
+// import SharpSpringForm from "../components/common/SharpForm";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -32,7 +32,7 @@ export default ({ pageContext, data }) => {
             <Col>
               <div className="message">{copy}</div>
             </Col>
-            <Col>
+            {/* <Col>
               <SharpSpringForm
                 account={code.account}
                 formID={code.formID}
@@ -40,7 +40,7 @@ export default ({ pageContext, data }) => {
                 scriptSrc={code.scriptSrc}
                 title={code.title}
               />
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </MessageWrap>
