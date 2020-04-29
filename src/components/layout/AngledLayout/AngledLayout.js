@@ -15,9 +15,12 @@ import VisionHeader from "./Header/VisionHeader"
 import VisionFooter from "./Footer/VisionFooter";
 
 const Wrap = styled.div`
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .container {
+    width: 80vw !important;
+  }
 `
 
 const Layout = ({ children }) => {
