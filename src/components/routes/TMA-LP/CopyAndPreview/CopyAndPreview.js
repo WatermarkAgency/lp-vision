@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
-import Theme from '../../../vars/ThemeOptions'
+import Theme from '../../../../vars/ThemeOptions'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import PreviewSlider from './PreviewPDF'
  
 const Wrap = styled.div`
   margin: 5vw 0;
@@ -26,10 +27,10 @@ const CopyAndPreview = ({ copy, preview, formCopy }) => {
           <Col xs={12} md={8}>
             <div className="rich-text-wrap">
               {documentToReactComponents(copy.json)}
-            </div>            
+            </div>
           </Col>
           <Col xs={12} md={4}>
-            preview
+            <PreviewSlider images={preview}/>
           </Col>
         </Row>
       </Container>
