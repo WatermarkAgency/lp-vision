@@ -67,7 +67,7 @@ const AngledPageTitle = ({ firstLine, secondLine, subtitle, buttonText }) => {
       </Container>
       <div className="button-outer-wrap">
         <div className="button-inner-wrap">
-          <ScrollTo selector="#form-wrap">
+          <ScrollTo selector="#form-section-wrap">
             <button>{buttonText}</button>
           </ScrollTo>          
         </div>
