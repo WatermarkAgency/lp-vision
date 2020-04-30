@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import AngledPageTitle from "../components/routes/TMA-LP/AngledPageTitle";
 import CopyAndPreview from "../components/routes/TMA-LP/CopyAndPreview/CopyAndPreview";
+import SSForm from "../components/routes/TMA-LP/SSForm"
 // import SharpSpringForm from "../components/common/SharpForm";
 
 const ContentWrap = styled(Container)`
@@ -22,6 +23,7 @@ export default ({ pageContext, data }) => {
       <ContentWrap fluid>
         <AngledPageTitle firstLine={pageTitleFirstLine} secondLine={pageTitleSecondLine} subtitle={pageSubtitle} />
         <CopyAndPreview copy={mainCopy} preview={bookPreviewPages} formCopy={formCopy} />
+        <SSForm />
       </ContentWrap>
     </Layout>
   );

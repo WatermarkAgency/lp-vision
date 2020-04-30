@@ -1,5 +1,5 @@
 import React from "react";
-import { CtflLogo } from "wmk-lib";
+import { ContentfulLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import VisionAngle from "./VisionAngle";
@@ -37,7 +37,7 @@ const VisionHeader = () => {
   return (
     <HeaderWrap>
       <Wrap>
-        <CtflLogo
+        <ContentfulLogo
           contentType={logo.file.contentType}
           fixed={logo.fixed}
           alt={logo.title}

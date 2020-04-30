@@ -1,5 +1,5 @@
 import React from "react";
-import { CtflLogo } from "wmk-lib";
+import { ContentfulLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components";
@@ -59,7 +59,7 @@ const VisionHeader = () => {
         <div className="inner-wrap">
           <Container>
             <div className="logo-wrap">
-              <CtflLogo
+              <ContentfulLogo
                 contentType={logoWhite.file.contentType}
                 fluid={logoWhite.fluid}
                 alt={logoWhite.title}
