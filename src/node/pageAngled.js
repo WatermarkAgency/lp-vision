@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import AngledPageTitle from "../components/routes/TMA-LP/AngledPageTitle";
-import CopyAndPreview from "../components/routes/TMA-LP/CopyAndPreview";
+import CopyAndPreview from "../components/routes/TMA-LP/CopyAndPreview/CopyAndPreview";
 // import SharpSpringForm from "../components/common/SharpForm";
 
 const ContentWrap = styled(Container)`
@@ -41,6 +41,7 @@ export const query = graphql`
       buttonText
       formCopy
       bookPreviewPages {
+        title
         fluid {
           ...GatsbyContentfulFluid
         }
