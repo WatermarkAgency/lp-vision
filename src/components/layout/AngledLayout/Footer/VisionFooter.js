@@ -7,6 +7,9 @@ import { CtflLogo } from "wmk-lib";
 const Wrap = styled.footer`
   background: #2c2b2a;
   padding: 3vw 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   .center {
       display: flex;
       justify-content: center;

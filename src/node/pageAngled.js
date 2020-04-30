@@ -3,46 +3,26 @@ import Layout from "../components/layout/AngledLayout/AngledLayout";
 import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
+import AngledPageTitle from "../components/routes/TMA-LP/AngledPageTitle";
+import CopyAndPreview from "../components/routes/TMA-LP/CopyAndPreview";
 // import SharpSpringForm from "../components/common/SharpForm";
 
-const MessageWrap = styled(Container)`
-  background: #f5f5f5;
-  .message {
-    padding: 6vw 0;
-    margin: auto;
-    min-height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+const ContentWrap = styled(Container)`
+  padding-right: 0 !important;
+  padding-left: 0 !important; 
+  overflow: hidden;
 `;
 
 export default ({ pageContext, data }) => {
   const { lp } = data;
-  console.log(data)
-  const { headline, image, message, code } = lp;
-  const { copy } = message ? message : { copy: null };
+  // console.log(data)
+  const { title, slug, pageTitleFirstLine, pageTitleSecondLine, pageSubtitle, mainCopy, buttonText, formCopy, bookPreviewPages } = lp;
   return (
     <Layout>
-      <MessageWrap fluid>
-        <Container>
-          <Row className="flex-column">
-            <Col>
-              <div className="message">{copy}</div>
-            </Col>
-            <Col>
-              {/* <SharpSpringForm
-                account={code.account}
-                formID={code.formID}
-                formDomain={code.formDomain}
-                scriptSrc={code.scriptSrc}
-                title={code.title}
-              /> */}
-            </Col>
-          </Row>
-        </Container>
-      </MessageWrap>
+      <ContentWrap fluid>
+        <AngledPageTitle firstLine={pageTitleFirstLine} secondLine={pageTitleSecondLine} subtitle={pageSubtitle} />
+        <CopyAndPreview copy={mainCopy} preview={bookPreviewPages} formCopy={formCopy} />
+      </ContentWrap>
     </Layout>
   );
 };

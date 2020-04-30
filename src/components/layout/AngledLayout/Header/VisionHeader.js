@@ -1,6 +1,7 @@
 import React from "react";
 import { CtflLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
+import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components";
 import Theme from "../../../../vars/ThemeOptions"
 
@@ -14,7 +15,7 @@ const Wrap = styled.div`
   .inner-wrap {
     position: relative;
     z-index: 10;
-    padding: 4vh 6vw 2vh 6vw;
+    padding: 4vw 6vw 2vw 6vw;
     background: ${Theme.hex('orange')};
     clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
     .logo-wrap {
@@ -56,15 +57,17 @@ const VisionHeader = () => {
     <HeaderWrap>
       <Wrap>
         <div className="inner-wrap">
-          <div className="logo-wrap">
-            <CtflLogo
-              contentType={logoWhite.file.contentType}
-              fluid={logoWhite.fluid}
-              alt={logoWhite.title}
-              target="_self"
-              to={"https://visiongraphics-inc.com/"}
-            />
-          </div>
+          <Container>
+            <div className="logo-wrap">
+              <CtflLogo
+                contentType={logoWhite.file.contentType}
+                fluid={logoWhite.fluid}
+                alt={logoWhite.title}
+                target="_self"
+                to={"https://visiongraphics-inc.com/"}
+              />
+            </div>
+          </Container>
         </div>
         <div className="dark-bot-border" />
       </Wrap>

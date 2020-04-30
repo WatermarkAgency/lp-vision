@@ -9,15 +9,18 @@ import React from "react";
 import PropTypes from "prop-types";
 // import { useStaticQuery, graphql } from "gatsby";
 import { MainLayout } from "wmk-lib";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import VisionHeader from "./Header/VisionHeader"
+import VisionHeader from "./Header/VisionHeader";
 import VisionFooter from "./Footer/VisionFooter";
 
 const Wrap = styled.div`
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .container {
+    width: 80vw !important;
+  }
 `
 
 const Layout = ({ children }) => {
