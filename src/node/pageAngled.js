@@ -23,7 +23,7 @@ export default ({ pageContext, data }) => {
       <ContentWrap fluid>
         <AngledPageTitle firstLine={pageTitleFirstLine} secondLine={pageTitleSecondLine} subtitle={pageSubtitle} buttonText={buttonText} />
         <CopyAndPreview copy={mainCopy} preview={bookPreviewPages} formCopy={formCopy} />
-        <SSForm />
+        <SSForm formCopy={formCopy} />
       </ContentWrap>
     </Layout>
   );

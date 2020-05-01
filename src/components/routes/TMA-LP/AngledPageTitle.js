@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
-// import ScrollTo from 'react-scroll-into-view'
+import ScrollTo from 'react-scroll-into-view'
 import Theme from '../../../vars/ThemeOptions'
 
  
@@ -67,9 +67,9 @@ const AngledPageTitle = ({ firstLine, secondLine, subtitle, buttonText }) => {
       </Container>
       <div className="button-outer-wrap">
         <div className="button-inner-wrap">
-          {/* <ScrollTo selector="#form-section-wrap"> */}
+          <ScrollTo selector="#form-section-wrap">
             <button>{buttonText}</button>
-          {/* </ScrollTo> */}
+          </ScrollTo>
         </div>
       </div>
     </Wrap>
