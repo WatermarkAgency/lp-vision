@@ -108,7 +108,7 @@ const SSForm = ({ formCopy }) => {
           <h3>{formCopy}</h3>
         </div>
       <div className="form-wrap">
-        <form>
+        <form netlify="true">
           <Container fluid>
             <Row>
               <Col className="input-col" sm={12} md={6}>
