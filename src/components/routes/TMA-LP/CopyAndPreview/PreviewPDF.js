@@ -98,7 +98,7 @@ const Wrap = styled.div`
       top: 42vw;
     }
     .container-fluid {
-      top: 45vw;
+      top: 45vw; 
     }
   }
   @media only screen and (max-width: 497px) {
