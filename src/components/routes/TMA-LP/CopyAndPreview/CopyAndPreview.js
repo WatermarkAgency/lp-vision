@@ -37,6 +37,7 @@ const Wrap = styled.div`
     }
   }
   @media only screen and (max-width: 800px) {
+    margin-top: 5rem;
     margin-bottom: 35rem;
     .rich-text-col {
       .rich-text-wrap {

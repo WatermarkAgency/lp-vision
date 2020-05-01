@@ -109,6 +109,14 @@ const Wrap = styled.div`
       top: 68vw;
     }
   }
+  @media only screen and (max-width: 415px) {
+    .slider-title {
+      top: 73vw;
+    }
+    .container-fluid {
+      top: 78vw;
+    }
+  }
 `
  
 const PreviewPDF = ({ pages }) => {
