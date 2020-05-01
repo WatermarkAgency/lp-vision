@@ -157,6 +157,9 @@ const Theme = new ThemeOptions({
     sm: 768,
     md: 992,
     lg: 1200
+  },
+  transform: {
+    angle: 'rotate(-4deg) skewX(-12deg)'
   }
 });
 

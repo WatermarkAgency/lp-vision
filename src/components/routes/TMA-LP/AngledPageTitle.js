@@ -11,13 +11,10 @@ const Wrap = styled.div`
   left: -2vw !important;
   color: ${Theme.hex('orange')};
   text-transform: uppercase;
-  transform: rotate(-3deg) skewX(-10deg);
+  transform: ${Theme.transform.angle};
   margin-top: 10px;
   padding-bottom: 2vw;
   border-bottom: 2px solid ${Theme.hex('orange')} !important;
-
-  border-top: 2px solid black;  // used to compare to angle of header - remove when page is complete
-
   .container {
     width: 90vw !important;
   }

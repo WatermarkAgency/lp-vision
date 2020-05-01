@@ -10,10 +10,10 @@ const Wrap = styled.div`
   .form-wrap {
     margin: 5vw 20vw;
     .row {
-      margin: 10px 0;
       .input-col {
         padding-left: 5px;
         padding-right: 5px;
+        margin: 7px 0;
         input {
           width: 100%;
           border: 2px solid ${Theme.hex('orange')};
@@ -30,7 +30,7 @@ const Wrap = styled.div`
           color: ${Theme.hex('white')};
           font-weight: bold;
           border: none;
-          transform: rotate(-3deg) skewX(-10deg);
+          transform: ${Theme.transform.angle};
         }
       }
     }
@@ -40,7 +40,7 @@ const Wrap = styled.div`
     display: flex;
     justify-content: center;
     border-bottom: 2px solid ${Theme.hex('orange')};
-    transform: rotate(-3deg) skewX(-10deg);
+    transform: ${Theme.transform.angle};
   }
   .form-copy-wrap {
     width: 41%;
@@ -55,6 +55,48 @@ const Wrap = styled.div`
       position: absolute;
       top: -3vw;
     }      
+  }
+  @media only screen and (min-width: 1450px) {
+    .form-copy-wrap {
+      width: 39%;
+    }
+  }
+  @media only screen and (max-width: 1100px) {
+    .form-copy-wrap {
+      width: 43%;
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    .form-copy-wrap {
+      width: 55%;
+      h3 {
+        font-size: 2vw;
+      }
+    }
+    .submit-col {
+      input[type="submit"] {
+        width: 30% !important;
+      }
+    }
+  }
+  @media only screen and (max-width: 705px) {
+    .form-copy-wrap {
+      width: 59%;
+    }
+    .submit-col {
+      input[type="submit"] {
+        width: 40% !important;
+      }
+    }
+  }
+  @media only screen and (max-width: 590px) {
+    .form-copy-wrap {
+      width: 60%;
+      h3 {
+        font-size: 2vw;
+        top: -5vw;
+      }
+    }
   }
 `
  
