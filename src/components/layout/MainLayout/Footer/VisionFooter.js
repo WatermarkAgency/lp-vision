@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { graphql, useStaticQuery } from "gatsby";
-import { CtflLogo } from "wmk-lib";
+import { ContentfulLogo } from "wmk-lib";
 
 const Wrap = styled.footer`
   background: #2c2b2a;
@@ -37,7 +37,7 @@ const VisionFooter = () => {
       <Container>
         <Row>
           <Col className="center">
-            <CtflLogo
+            <ContentfulLogo
               contentType={logo.file.contentType}
               fixed={logo.fixed}
               alt={logo.title}

@@ -24,6 +24,38 @@ const Wrap = styled.div`
       } 
     }
   }
+  @media only screen and (max-width: 1006px) {
+    margin-bottom: 55vw;
+    .rich-text-col {
+      position: relative;
+      .rich-text-wrap {
+        position: absolute;
+        p:first-of-type {
+          margin-bottom: 65vw;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 35rem;
+    .rich-text-col {
+      .rich-text-wrap {
+        p:first-of-type {
+          margin-bottom: 70vw;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 497px) {
+    margin-bottom: 45rem;
+    .rich-text-col {
+      .rich-text-wrap {
+        p:first-of-type {
+          margin-bottom: 80vw;
+        }
+      }
+    }
+  }
 `
  
 const CopyAndPreview = ({ copy, preview, formCopy }) => {
@@ -31,12 +63,12 @@ const CopyAndPreview = ({ copy, preview, formCopy }) => {
     <Wrap>
       <Container>
         <Row>
-          <Col xs={12} md={8}>
+          <Col md={12} lg={8} className="rich-text-col">
             <div className="rich-text-wrap">
               {documentToReactComponents(copy.json)}
             </div>
           </Col>
-          <Col xs={12} md={4}>
+          <Col md={12} lg={4}>
             <PreviewSlider pages={preview}/>
           </Col>
         </Row>

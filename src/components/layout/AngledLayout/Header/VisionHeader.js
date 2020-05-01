@@ -1,37 +1,28 @@
 import React from "react";
-import { CtflLogo } from "wmk-lib";
+import { ContentfulLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components";
 import Theme from "../../../../vars/ThemeOptions"
 
 const HeaderWrap = styled.div`
-position: relative;
-`;
-
-const Wrap = styled.div`
   position: relative;
-  z-index: 100;
-  .inner-wrap {
-    position: relative;
-    z-index: 10;
-    padding: 4vw 6vw 2vw 6vw;
-    background: ${Theme.hex('orange')};
-    clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
-    .logo-wrap {
-      width: 200px;
-      height: 100px;
-    }
+  .logo-wrap {
+    width: 25%;
+    height: auto;
+    padding: 5% 0;
+    margin-bottom: 5vw;
   }
-  .dark-bot-border {
+  .bg-div {
     position: absolute;
+    top: -20%;
+    left: -5%;
     z-index: -10;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 8%;
-    background: gray;
-    clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
+    height: 20vw;
+    width: 110%;
+    background: ${Theme.hex('orange')};
+    transform: ${Theme.transform.angle};
+    border-bottom: 10px solid gray;
   }
 `;
 
@@ -55,24 +46,32 @@ const VisionHeader = () => {
   const { logoWhite } = options;
   return (
     <HeaderWrap>
-      <Wrap>
-        <div className="inner-wrap">
-          <Container>
-            <div className="logo-wrap">
-              <CtflLogo
-                contentType={logoWhite.file.contentType}
-                fluid={logoWhite.fluid}
-                alt={logoWhite.title}
-                target="_self"
-                to={"https://visiongraphics-inc.com/"}
-              />
-            </div>
-          </Container>
+      <Container>
+        <div className="logo-wrap">
+          <ContentfulLogo
+            contentType={logoWhite.file.contentType}
+            fluid={logoWhite.fluid}
+            alt={logoWhite.title}
+            target="_self"
+            to={"https://visiongraphics-inc.com/"}
+          />
         </div>
-        <div className="dark-bot-border" />
-      </Wrap>
+      </Container> 
+      <div className="bg-div" />
     </HeaderWrap>
   );
 };
+
+{/* <Container>
+<div className="logo-wrap">
+  <ContentfulLogo
+    contentType={logoWhite.file.contentType}
+    fluid={logoWhite.fluid}
+    alt={logoWhite.title}
+    target="_self"
+    to={"https://visiongraphics-inc.com/"}
+  />
+</div>
+</Container> */}
 
 export default VisionHeader;

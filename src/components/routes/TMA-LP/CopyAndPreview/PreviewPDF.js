@@ -62,6 +62,53 @@ const Wrap = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 1006px) {
+    position: relative;
+    height: 55vw;
+    .slider-title {
+      position: absolute;
+      top: 17vw;
+    }
+    .container-fluid {
+      position: absolute;
+      top: 20vw;
+      width: 56%;
+      height: 55vw;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    height: 55vw;
+    .slider-title {
+      top: 24vw;
+    }
+    .container-fluid {
+      top: 27vw;
+    }
+  }
+  @media only screen and (max-width: 690px) {
+    .slider-title {
+      top: 31vw;
+    }
+    .container-fluid {
+      top: 34vw;
+    }
+  }
+  @media only screen and (max-width: 575px) {
+    .slider-title {
+      top: 42vw;
+    }
+    .container-fluid {
+      top: 45vw; 
+    }
+  }
+  @media only screen and (max-width: 497px) {
+    .slider-title {
+      top: 63vw;
+    }
+    .container-fluid {
+      top: 68vw;
+    }
+  }
 `
  
 const PreviewPDF = ({ pages }) => {
