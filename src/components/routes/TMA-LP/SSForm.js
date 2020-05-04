@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Container, Row, Col } from 'react-bootstrap'
-import Theme from '../../../vars/ThemeOptions'
- 
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
+import Theme from "../../../vars/ThemeOptions";
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ const Wrap = styled.div`
         margin: 7px 0;
         input {
           width: 100%;
-          border: 2px solid ${Theme.hex('orange')};
+          border: 2px solid ${Theme.hex("orange")};
           padding: 5px 10px;
         }
       }
@@ -26,8 +26,8 @@ const Wrap = styled.div`
         margin-top: 1.5rem;
         input[type="submit"] {
           width: 20%;
-          background: ${Theme.hex('orange')};
-          color: ${Theme.hex('white')};
+          background: ${Theme.hex("orange")};
+          color: ${Theme.hex("white")};
           font-weight: bold;
           border: none;
           transform: ${Theme.transform.angle};
@@ -39,7 +39,7 @@ const Wrap = styled.div`
     width: 110%;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid ${Theme.hex('orange')};
+    border-bottom: 2px solid ${Theme.hex("orange")};
     transform: ${Theme.transform.angle};
   }
   .form-copy-wrap {
@@ -50,11 +50,11 @@ const Wrap = styled.div`
       font-size: 1.5vw;
       font-weight: bold;
       text-transform: uppercase;
-      background: ${Theme.hex('white')};
+      background: ${Theme.hex("white")};
       padding: 10px;
       position: absolute;
       top: -3vw;
-    }      
+    }
   }
   @media only screen and (min-width: 1450px) {
     .form-copy-wrap {
@@ -98,50 +98,138 @@ const Wrap = styled.div`
       }
     }
   }
-`
- 
+`;
+
 const SSForm = ({ formCopy }) => {
-  return (
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+  });
+  const [isSent, setIsSent] = useState(false)
+
+  const handleChange = (e) => {
+    const data = { ...formData };
+    data[e.target.name] = e.target.value;
+    setFormData(data);
+  };
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "tangible", ...formData }),
+    })
+      .then(() => console.log("Success!"))
+      .catch((error) => console.log(error));
+
+    e.preventDefault();
+    setIsSent(true);
+  };
+
+  return !isSent ? (
     <Wrap id="form-section-wrap">
       <div className="form-copy-angle" />
       <div className="form-copy-wrap">
-          <h3>{formCopy}</h3>
-        </div>
+        <h3>{formCopy}</h3>
+      </div>
       <div className="form-wrap">
-        <form netlify="true">
+        <form netlify="true" onSubmit={handleSubmit}>
+          <input type="hidden" name="form-name" value="tangible" />
           <Container fluid>
             <Row>
               <Col className="input-col" sm={12} md={6}>
-                <input type="text" name="firstName" placeholder="First Name" />
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                />
               </Col>
               <Col className="input-col" sm={12} md={6}>
-                <input type="text" name="lastName" placeholder="Last Name" />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                />
               </Col>
             </Row>
             <Row>
               <Col className="input-col">
-                <input type="text" name="email" placeholder="Email" />
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
               </Col>
             </Row>
             <Row>
               <Col className="input-col">
-                <input type="text" name="company" placeholder="Company" />
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Company"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
               </Col>
             </Row>
             <Row>
               <Col className="input-col">
-                <input type="text" name="address" placeholder="Address" />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  value={formData.address}
+                  onChange={handleChange}
+                />
               </Col>
             </Row>
             <Row>
               <Col className="input-col" sm={12} md={4}>
-                <input type="text" name="city" placeholder="City" />
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  value={formData.city}
+                  onChange={handleChange}
+                />
               </Col>
               <Col className="input-col" sm={12} md={4}>
-                <input type="text" name="state" placeholder="State" />
+                <input
+                  type="text"
+                  name="state"
+                  placeholder="State"
+                  value={formData.state}
+                  onChange={handleChange}
+                />
               </Col>
               <Col className="input-col" sm={12} md={4}>
-                <input type="text" name="zip" placeholder="Zip" />
+                <input
+                  type="text"
+                  name="zip"
+                  placeholder="Zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                />
               </Col>
             </Row>
             <Row>
@@ -153,7 +241,7 @@ const SSForm = ({ formCopy }) => {
         </form>
       </div>
     </Wrap>
-  )
-}
- 
-export default SSForm
+  ) : <p>Form has been submitted.</p>;
+};
+
+export default SSForm;
