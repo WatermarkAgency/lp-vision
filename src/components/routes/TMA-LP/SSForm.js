@@ -147,7 +147,7 @@ const SSForm = ({ formCopy }) => {
         <h3>{formCopy}</h3>
       </div>
       <div className="form-wrap">
-        <form netlify="true" onSubmit={handleSubmit}>
+        <form netlify="true" onSubmit={handleSubmit} name="tangible">
           <input type="hidden" name="form-name" value="tangible" />
           <Container fluid>
             <Row>
