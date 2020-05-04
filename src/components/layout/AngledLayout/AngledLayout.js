@@ -18,6 +18,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
   .container {
     width: 80vw !important;
   }
