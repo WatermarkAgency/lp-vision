@@ -131,8 +131,6 @@ const ThankYouWrap = styled.div`
 `
 
 const SSForm = ({ formCopy, thankYou }) => {
-  console.log(thankYou)
-
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -160,13 +158,13 @@ const SSForm = ({ formCopy, thankYou }) => {
   };
 
   const handleSubmit = (e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "tangible", ...formData }),
-    })
-      .then(() => console.log("Success!"))
-      .catch((error) => console.log(error));
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "tangible", ...formData }),
+    // })
+    //   .then(() => console.log("Success!"))
+    //   .catch((error) => console.log(error));
 
     e.preventDefault();
     setIsSent(true);
@@ -176,7 +174,8 @@ const SSForm = ({ formCopy, thankYou }) => {
     renderNode: {
       [INLINES.ASSET_HYPERLINK]: (node) => {
         const { url } = node.data.target.fields.file["en-US"];
-        return <a href={`https:`+url} target="_blank">Click here</a>
+        const { value } = node.content[0];
+        return <a href={`https:`+url} target="_blank">{value}</a>
       }
     }
   }; 

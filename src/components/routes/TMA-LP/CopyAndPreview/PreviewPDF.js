@@ -131,7 +131,6 @@ const PreviewPDF = ({ pages }) => {
         setSlideWidth(
             slideRef.current.offsetWidth
           );
-          console.log(slideWidth)
     }
     resize()
     window.addEventListener("resize",resize)
@@ -163,7 +162,7 @@ const PreviewPDF = ({ pages }) => {
         <Row className="slider-row" style={{left: -slideWidth * active + 1}}>
           {pages.map((page, i) => {
             return(
-              <Col xs={12} className="slider-col" ref={slideRef}>
+              <Col xs={12} className="slider-col" ref={slideRef} key={page.title + i}>
                 <Img fluid={page.fluid} alt={page.title} />
               </Col>     
             )       

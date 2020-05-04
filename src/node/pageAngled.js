@@ -11,7 +11,7 @@ import SSForm from "../components/routes/TMA-LP/SSForm"
 const ContentWrap = styled(Container)`
   padding-right: 0 !important;
   padding-left: 0 !important; 
-  overflow: hidden;
+  overflow: hidden !important;
 `;
 
 export default ({ pageContext, data }) => {
