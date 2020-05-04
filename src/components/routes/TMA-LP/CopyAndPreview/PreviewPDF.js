@@ -120,7 +120,7 @@ const Wrap = styled.div`
 `
  
 const PreviewPDF = ({ pages }) => {
-  console.log(pages)
+  // console.log(pages)
   const [slideWidth, setSlideWidth] = useState(0)
   const [active, setActive] = useState(0)
 

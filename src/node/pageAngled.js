@@ -17,13 +17,13 @@ const ContentWrap = styled(Container)`
 export default ({ pageContext, data }) => {
   const { lp } = data;
   // console.log(data)
-  const { title, slug, pageTitleFirstLine, pageTitleSecondLine, pageSubtitle, mainCopy, buttonText, formCopy, bookPreviewPages } = lp;
+  const { title, slug, pageTitleFirstLine, pageTitleSecondLine, pageSubtitle, mainCopy, buttonText, formCopy, bookPreviewPages, thankYou } = lp;
   return (
     <Layout>
       <ContentWrap fluid>
         <AngledPageTitle firstLine={pageTitleFirstLine} secondLine={pageTitleSecondLine} subtitle={pageSubtitle} buttonText={buttonText} />
         <CopyAndPreview copy={mainCopy} preview={bookPreviewPages} formCopy={formCopy} />
-        <SSForm formCopy={formCopy} />
+        <SSForm formCopy={formCopy} thankYou={thankYou} />
       </ContentWrap>
     </Layout>
   );
@@ -47,6 +47,9 @@ export const query = graphql`
         fluid {
           ...GatsbyContentfulFluid
         }
+      }
+      thankYou: thankYouCopyAndDownload {
+        json
       }
     }
   }
