@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { INLINES } from '@contentful/rich-text-types';
 import Theme from "../../../vars/ThemeOptions";
 
 const Wrap = styled.div`
@@ -56,6 +58,18 @@ const Wrap = styled.div`
       top: -3vw;
     }
   }
+  .thank-you-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      margin: 10vw 15vw;
+      text-align: center;
+    }    
+  }
+
   @media only screen and (min-width: 1450px) {
     .form-copy-wrap {
       width: 39%;
@@ -100,7 +114,23 @@ const Wrap = styled.div`
   }
 `;
 
-const SSForm = ({ formCopy }) => {
+const ThankYouWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 5vw 15vw 10vw 15vw;
+    text-align: center;
+    a {
+      color: ${Theme.hex('orange')};
+      text-decoration: underline;
+    }
+  }  
+`
+
+const SSForm = ({ formCopy, thankYou }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -128,17 +158,27 @@ const SSForm = ({ formCopy }) => {
   };
 
   const handleSubmit = (e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "tangible", ...formData }),
-    })
-      .then(() => console.log("Success!"))
-      .catch((error) => console.log(error));
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "tangible", ...formData }),
+    // })
+    //   .then(() => console.log("Success!"))
+    //   .catch((error) => console.log(error));
 
     e.preventDefault();
     setIsSent(true);
   };
+
+  const thankYouOptions = {
+    renderNode: {
+      [INLINES.ASSET_HYPERLINK]: (node) => {
+        const { url } = node.data.target.fields.file["en-US"];
+        const { value } = node.content[0];
+        return <a href={`https:`+url} target="_blank">{value}</a>
+      }
+    }
+  }; 
 
   return !isSent ? (
     <Wrap id="form-section-wrap">
@@ -241,7 +281,10 @@ const SSForm = ({ formCopy }) => {
         </form>
       </div>
     </Wrap>
-  ) : <p>Form has been submitted.</p>;
+  ) : 
+    <ThankYouWrap>
+      {documentToReactComponents(thankYou.json, thankYouOptions)}
+    </ThankYouWrap>
 };
 
 export default SSForm;
