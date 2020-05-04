@@ -158,13 +158,13 @@ const SSForm = ({ formCopy, thankYou }) => {
   };
 
   const handleSubmit = (e) => {
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "tangible", ...formData }),
-    // })
-    //   .then(() => console.log("Success!"))
-    //   .catch((error) => console.log(error));
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "tangible", ...formData }),
+    })
+      .then(() => console.log("Success!"))
+      .catch((error) => console.log(error));
 
     e.preventDefault();
     setIsSent(true);
