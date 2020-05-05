@@ -189,6 +189,7 @@ const SSForm = ({ formCopy, thankYou }) => {
       <div className="form-wrap">
         <form netlify="true" onSubmit={handleSubmit} name="tangible">
           <input type="hidden" name="form-name" value="tangible" />
+          <input type="hidden" name="isTangible" value="1" />
           <Container fluid>
             <Row>
               <Col className="input-col" sm={12} md={6}>
