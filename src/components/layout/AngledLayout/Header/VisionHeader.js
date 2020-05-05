@@ -24,6 +24,17 @@ const HeaderWrap = styled.div`
     transform: ${Theme.transform.angle};
     border-bottom: 10px solid gray;
   }
+  @media only screen and (max-width: 800px) {
+    .logo-wrap {
+      width: 60%;
+      margin-left: 20%;
+    }
+    .bg-div {
+      height: 30vw;
+      width: 110%;
+      border-bottom: 15px solid gray;
+    }
+  }
 `;
 
 const VisionHeader = () => {
