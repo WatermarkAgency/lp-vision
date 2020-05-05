@@ -142,13 +142,13 @@ const SSForm = ({ formCopy, download, formSubmit }) => {
   };
 
   const handleSubmit = (e) => {
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "tangible", ...formData }),
-    // })
-    //   .then(() => console.log("Success!"))
-    //   .catch((error) => console.log(error));
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "tangible", ...formData }),
+    })
+      .then(() => console.log("Success!"))
+      .catch((error) => console.log(error));
 
     e.preventDefault();
     formSubmit(); // not the actual form submission (that's the fetch above) - this function just tells node/pageAngled.js that it now needs to display the thank you page and auto-download the pdf
