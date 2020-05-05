@@ -114,23 +114,8 @@ const Wrap = styled.div`
   }
 `;
 
-const ThankYouWrap = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  p {
-    margin: 5vw 15vw 10vw 15vw;
-    text-align: center;
-    a {
-      color: ${Theme.hex('orange')};
-      text-decoration: underline;
-    }
-  }  
-`
 
-const SSForm = ({ formCopy, thankYou }) => {
+const SSForm = ({ formCopy, download, formSubmit }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -141,7 +126,6 @@ const SSForm = ({ formCopy, thankYou }) => {
     state: "",
     zip: "",
   });
-  const [isSent, setIsSent] = useState(false)
 
   const handleChange = (e) => {
     const data = { ...formData };
@@ -158,29 +142,19 @@ const SSForm = ({ formCopy, thankYou }) => {
   };
 
   const handleSubmit = (e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "tangible", ...formData }),
-    })
-      .then(() => console.log("Success!"))
-      .catch((error) => console.log(error));
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "tangible", ...formData }),
+    // })
+    //   .then(() => console.log("Success!"))
+    //   .catch((error) => console.log(error));
 
     e.preventDefault();
-    setIsSent(true);
+    formSubmit(); // not the actual form submission (that's the fetch above) - this function just tells node/pageAngled.js that it now needs to display the thank you page and auto-download the pdf
   };
 
-  const thankYouOptions = {
-    renderNode: {
-      [INLINES.ASSET_HYPERLINK]: (node) => {
-        const { url } = node.data.target.fields.file["en-US"];
-        const { value } = node.content[0];
-        return <a href={`https:`+url} target="_blank">{value}</a>
-      }
-    }
-  }; 
-
-  return !isSent ? (
+  return (
     <Wrap id="form-section-wrap">
       <div className="form-copy-angle" />
       <div className="form-copy-wrap">
@@ -280,12 +254,9 @@ const SSForm = ({ formCopy, thankYou }) => {
             </Row>
           </Container>
         </form>
-      </div>
+      </div>      
     </Wrap>
-  ) : 
-    <ThankYouWrap>
-      {documentToReactComponents(thankYou.json, thankYouOptions)}
-    </ThankYouWrap>
+  )
 };
 
 export default SSForm;
