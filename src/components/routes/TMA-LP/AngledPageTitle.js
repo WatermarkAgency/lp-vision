@@ -50,7 +50,11 @@ const Wrap = styled.div`
       }
     }
   }
-
+  @media only screen and (max-width: 800px) {
+    p {
+      font-size: 2vw !important;
+    }
+  }
 `
  
 const AngledPageTitle = ({ firstLine, secondLine, subtitle, buttonText }) => {
