@@ -38,7 +38,7 @@ export default ({ pageContext, data }) => {
           <ThankYou thankYouTitle={thankYouTitle} thankYouCopy={thankYouCopy} downloadButtonCopy={downloadButtonCopy} downloadPreview={downloadPreview} />
         }
       </ContentWrap>
-      <a id="hidden-auto-download" download="./Tangible_Marketing_Automation.pdf" href="./Tangible_Marketing_Automation.pdf" target="_blank" rel="noopener noreferrer" style={{opacity: 0}}>hidden auto download</a>
+      <a id="hidden-auto-download" download="../components/routes/TMA-LP/Tangible_Marketing_Automation.pdf" href="../components/routes/TMA-LP/Tangible_Marketing_Automation.pdf" style={{opacity: 0}}>hidden auto download</a>
     </Layout>
   );
 };
