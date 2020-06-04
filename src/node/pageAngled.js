@@ -38,7 +38,7 @@ export default ({ pageContext, data }) => {
           <ThankYou thankYouTitle={thankYouTitle} thankYouCopy={thankYouCopy} downloadButtonCopy={downloadButtonCopy} downloadPreview={downloadPreview} />
         }
       </ContentWrap>
-      <a id="hidden-auto-download" download="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf" href="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf" target="_blank" style={{opacity: 0}}>hidden auto download</a>
+      <a id="hidden-auto-download" download="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" href="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" target="_blank" style={{opacity: 0}}>hidden auto download</a>
     </Layout>
   );
 };
