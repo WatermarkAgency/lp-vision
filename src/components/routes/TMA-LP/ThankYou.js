@@ -114,7 +114,7 @@ const ThankYou = ({ thankYouTitle, thankYouCopy, downloadButtonCopy, downloadPre
         </div>
         <div className="download-button">
           <button>
-            <a download="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf" href="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf">
+            <a download="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf" href="https://cdn2.hubspot.net/hubfs/526959/Tangible_Marketing_Automation.pdf" target="_blank">
               {downloadButtonCopy}
             </a>
           </button>
