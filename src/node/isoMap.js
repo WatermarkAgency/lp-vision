@@ -9,7 +9,7 @@ const Wrap = styled.div`
 `
  
 const isoMap = ({ pageContext, data }) => {
-  console.log("isoMap data: ", data.isoMap.sections)
+  console.log("sectionsData: ", data.isoMap.sections)
   return (
     <Wrap>
       {/* <Header /> */}
