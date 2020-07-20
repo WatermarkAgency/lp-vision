@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 // import Header from '../components/routes/IsometricMap/Header'
-import IsoMap from '../components/routes/IsometricMap/IsoMap'
+import IsoMapPage from '../components/routes/IsometricMap/IsoMap/IsoMapPage'
  
 const Wrap = styled.div`
  
@@ -13,7 +13,7 @@ const isoMap = ({ pageContext, data }) => {
   return (
     <Wrap>
       {/* <Header /> */}
-      <IsoMap sectionsData={data.isoMap.sections} />
+      <IsoMapPage sectionsData={data.isoMap.sections} />
     </Wrap>
   )
 }
