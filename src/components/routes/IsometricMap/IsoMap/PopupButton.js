@@ -6,13 +6,14 @@ const Wrap = styled.button`
   border: none;
   position: absolute;
   z-index: 15;
+  // background: rgba(0,0,0,0.5);
 `
  
 const PopupButton = ({ pieceName, secIndex, updateOpenPiece, updateCurrSec }) => {
   const creatStyleObj = pName => {
     switch(pName) {
       case 'break-room':
-        return {top: '38%', left: '18%', width: '8vw', height: '4vw', transform: 'rotate(-40deg) skew(20deg, 13deg)', background: 'rgba(0,0,0,0.5)'};
+        return {top: '38%', left: '18%', width: '8vw', height: '4vw', transform: 'rotate(-40deg) skew(20deg, 13deg)'};
         break;
       case 'other':
         return {};

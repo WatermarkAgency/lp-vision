@@ -18,10 +18,10 @@ const Wrap = styled.div`
       height: 57.48vw;
       position: absolute;
       opacity: 1;
-      transition: opacity .3s ease;
+      transition: opacity .2s ease;
       &.hidden {
         opacity: 0;
-        transition: opacity .3s ease .15s;
+        transition: opacity .2s ease .15s;
       }
     }
   }
@@ -86,6 +86,18 @@ const IsoMapPage = ({ sectionsData }) => {
       <div className="hover-secs-wrap">
         {/* Offices */}
         <HoverSection secIndex={1} updateCurrSec={updateCurrSec} />
+        {/* Marketing */}
+        <HoverSection secIndex={2} updateCurrSec={updateCurrSec} />
+        {/* Production */}
+        <HoverSection secIndex={3} updateCurrSec={updateCurrSec} />
+        {/* Digital */}
+        <HoverSection secIndex={4} updateCurrSec={updateCurrSec} />
+        {/* Shipping */}
+        <HoverSection secIndex={5} updateCurrSec={updateCurrSec} />
+        {/* Large Format */}
+        <HoverSection secIndex={6} updateCurrSec={updateCurrSec} />
+        {/* Analytics */}
+        <HoverSection secIndex={7} updateCurrSec={updateCurrSec} />
       </div>
       <div className="piece-buttons-wrap">
         {/* placeholder "break room" */}
