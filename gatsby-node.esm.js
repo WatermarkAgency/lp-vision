@@ -11,8 +11,9 @@ exports.createPages = ({ graphql, actions }) => {
     redirectInBrowser: true
   });
   const pageTemplate = path.resolve("./src/node/page.js");
-  const pageAngledTemplate = path.resolve("./src/node/pageAngled.js")
+  const pageAngledTemplate = path.resolve("./src/node/pageAngled.js");
   const tyTemplate = path.resolve("./src/node/ty.js");
+  const isoTemplate = path.resolve("./src/node/isoMap.js");
   createRedirect({
     fromPath: "/home",
     toPath: `/`,
@@ -44,6 +45,14 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
       thanks: allContentfulThankYouPages {
+        edges {
+          node {
+            slug
+            title
+          }
+        }
+      }
+      isoMap: allContentfulIsometricMapPage {
         edges {
           node {
             slug
@@ -83,6 +92,16 @@ exports.createPages = ({ graphql, actions }) => {
         // Path for this page — required
         path: `ty/${edge.node.slug}`,
         component: tyTemplate,
+        context: edge.node
+      });
+    });
+
+    // Create isometric map page
+    result.data.isoMap.edges.forEach(edge => {
+      createPage({
+        // Path for this page — required
+        path: `/${edge.node.slug}`,
+        component: isoTemplate,
         context: edge.node
       });
     });
