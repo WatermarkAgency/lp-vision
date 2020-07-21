@@ -29,7 +29,13 @@ const Wrap = styled.div`
   }
 `
  
-const Popup = ({ section, image, title, copy, updateOpenPiece }) => {
+const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
+  const secData = data[sectionIndex]
+  const piece = data[sectionIndex].sectionPieces[pieceIndex]
+  const section = secData.title
+  const title = piece.title
+  const copy = piece.copy
+  const image = piece.pieceImage
   const { fluid } = image ? image : null
   return (
     <Wrap>
