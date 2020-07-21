@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Offices from './Sections/Offices'
 import Popup from './Popup'
 import PopupButton from './PopupButton'
+import HoverSection from './HoverSection'
  
 const Wrap = styled.div`
   width: 100vw;
@@ -70,13 +70,6 @@ const IsoMapPage = ({ sectionsData }) => {
     setOpenPiece(piece)
   }
 
-  // const popupData = openPiece !== null && sectionsData[currSec].sectionPieces !== null && 
-  //   {
-  //     section: sectionsData[currSec].title,
-  //     image: sectionsData[currSec].sectionPieces[openPiece].pieceImage,
-  //     title: sectionsData[currSec].sectionPieces[openPiece].title,
-  //     copy: sectionsData[currSec].sectionPieces[openPiece].copy,
-  //   }
   return (
     <Wrap>
       <div className="bgs-wrap">
@@ -91,13 +84,14 @@ const IsoMapPage = ({ sectionsData }) => {
         })}
       </div>
       <div className="hover-secs-wrap">
-        <Offices updateCurrSec={updateCurrSec} updateOpenPiece={updateOpenPiece} pieces={sectionsData[1].sectionPieces} />
+        {/* Offices */}
+        <HoverSection secIndex={1} updateCurrSec={updateCurrSec} />
       </div>
       <div className="piece-buttons-wrap">
-        {/* placeholder "break room" popup button */}
+        {/* placeholder "break room" */}
         <PopupButton pieceName="break-room" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
       </div>
-      {/* placeholder "break room" popup */}
+      {/* placeholder "break room" */}
       {openPiece === "break-room" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
     </Wrap>
   )
