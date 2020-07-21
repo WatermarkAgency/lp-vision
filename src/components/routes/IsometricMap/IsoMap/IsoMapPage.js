@@ -84,13 +84,14 @@ const IsoMapPage = ({ sectionsData }) => {
         })}
       </div>
       <div className="hover-secs-wrap">
-        <HoverSection secIndex={1} updateCurrSec={updateCurrSec} />  {/* Offices */}
+        {/* Offices */}
+        <HoverSection secIndex={1} updateCurrSec={updateCurrSec} />
       </div>
       <div className="piece-buttons-wrap">
-        {/* placeholder "break room" popup button */}
+        {/* placeholder "break room" */}
         <PopupButton pieceName="break-room" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
       </div>
-      {/* placeholder "break room" popup */}
+      {/* placeholder "break room" */}
       {openPiece === "break-room" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
     </Wrap>
   )
