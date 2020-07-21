@@ -8,6 +8,7 @@ import HoverSection from './HoverSection'
 const Wrap = styled.div`
   width: 100vw;
   height: 57.48vw;
+  position: relative;
   .bgs-wrap {
     width: 100vw;
     height: 57.48vw;
@@ -71,7 +72,7 @@ const IsoMapPage = ({ sectionsData }) => {
   }
 
   return (
-    <Wrap>
+    <Wrap id="iso-map">
       <div className="bgs-wrap">
         {sectionsData.map((section, i) => {
           const bg = section.backgroundOnHover;
