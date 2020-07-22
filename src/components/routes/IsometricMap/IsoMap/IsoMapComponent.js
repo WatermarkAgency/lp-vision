@@ -101,11 +101,37 @@ const IsoMapPage = ({ sectionsData }) => {
         <HoverSection secIndex={7} updateCurrSec={updateCurrSec} />
       </div>
       <div className="piece-buttons-wrap">
-        {/* placeholder "break room" */}
-        <PopupButton pieceName="break-room" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Offices */}
+        <PopupButton pieceName="office-small" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="office-large" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Marketing */}
+        <PopupButton pieceName="marketing" secIndex={2} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Production */}
+        <PopupButton pieceName="production-topLeft" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-middle" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-bottomLeft" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-bottomRight" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Production */}
+        <PopupButton pieceName="digital-left" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="digital-right" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Shipping */}
+        <PopupButton pieceName="shipping-room" secIndex={5} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="shipping-truck" secIndex={5} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Large Format */}
+        <PopupButton pieceName="lf-left" secIndex={6} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="lf-right" secIndex={6} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />  
+        {/* Analytics */}
+        <PopupButton pieceName="analytics" secIndex={7} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
       </div>
-      {/* placeholder "break room" */}
-      {openPiece === "break-room" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {/* placeholder piece */}
+      {(openPiece !== null) && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {/* {(openPiece === "office-small" || openPiece === "office-large") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "marketing") && <Popup data={sectionsData} sectionIndex={2} pieceIndex={} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
     </Wrap>
   )
 }
