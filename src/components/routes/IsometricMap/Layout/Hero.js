@@ -19,12 +19,12 @@ const Hero = ({ bg }) => {
           </div>          
         </a>
         <div className="download-wrap">
-          <a href="#" className="download">
+          <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer" className="download">
             <p>Learn about Tangible Marketing Automation Services</p>
             <p>Download our White Paper Today!</p>            
           </a>
           <div className="arrow-circle">
-            <a href="#" target="_blank" rel="noreferrer">{`>`}</a>
+            <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer">{`>`}</a>
           </div>
         </div>
         <div className="dark-overlay" />
@@ -40,6 +40,8 @@ export default Hero
 const visOrange = '#F15C2B';
 
 const Wrap = styled.div`
+  position: relative;
+  z-index: 10;
   background: ${visOrange};
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
 `
