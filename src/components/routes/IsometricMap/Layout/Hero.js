@@ -18,13 +18,15 @@ const Hero = ({ bg }) => {
             <p>v</p>
           </div>          
         </a>
-        <a href="#" className="download">
-          <p>Learn about Tangible Marketing Automation Services</p>
-          <p>Download our White Paper Today!</p>
+        <div className="download-wrap">
+          <a href="#" className="download">
+            <p>Learn about Tangible Marketing Automation Services</p>
+            <p>Download our White Paper Today!</p>            
+          </a>
           <div className="arrow-circle">
-            >
+            <a href="#" target="_blank" rel="noreferrer">{`>`}</a>
           </div>
-        </a>
+        </div>
         <div className="dark-overlay" />
       </InnerWrap>     
     </Wrap>
@@ -100,37 +102,61 @@ const InnerWrap = styled.div`
       }
     }
   }
-  a.download {
+  .download-wrap {
+    position: absolute;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: absolute;
-    z-index: 20;
-    right: 0;
-    background: ${visOrange};
-    color: white;
-    width: 15rem;
-    padding: 2rem .5rem .5rem 1rem;
-    clip-path: polygon(0% 15%, 100% 0%, 100% 90%, 10% 100%);
-    :hover {
-      text-decoration: none;
-    }
-    p {
-      margin: 0;
-    }
-    p:first-of-type {
-      font-size: 12px;
-      font-weight: 100;
+    a.download {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: absolute;
+      z-index: 20;
+      right: 0;
+      background: ${visOrange};
+      color: white;
+      width: 15rem;
+      padding: 2rem .5rem 3rem 1rem;
+      clip-path: polygon(0% 15%, 100% 0%, 100% 90%, 10% 100%);
+      :hover {
+        text-decoration: none;
+      }
+      p {
+        margin: 0;
+      }
+      p:first-of-type {
+        font-size: 12px;
+        font-weight: 100;
+        margin-bottom: 7px;
+      }
+      p:last-of-type {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 22px;
+      }
     }
     .arrow-circle {
       position: relative;
-      bottom: -10px;
-      background: white;
-      color: ${visOrange};
-      padding: 5px 12px;
-      border-radius: 50%;
+      z-index: 20;
+      bottom: -4.75rem;
+      right: 6rem;
+      a {
+        color: ${visOrange};
+        background: white;      
+        padding: 0px 8px 3px 9px;
+        border-radius: 50%;
+        font-size: 25px;
+        font-weight: 200;
+        :hover {
+          text-decoration: none;
+        }
+      }
     }
   }
   .dark-overlay {
@@ -141,6 +167,11 @@ const InnerWrap = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.75);
+  }
+  @media only screen and (max-width: 1150px) {
+    a.download, .arrow-circle {
+      display: none !important;
+    }
   }
   @media only screen and (max-width: 700px) {
     padding: 4rem 10vw 10rem 10vw;
