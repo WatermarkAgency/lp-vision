@@ -4,12 +4,12 @@ import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
  
 const Wrap = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: 10000;
   top: 0;
   left: 0;
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(255,255,255,.8);
   padding: 10vw;
   display: flex;
@@ -23,8 +23,8 @@ const Wrap = styled.div`
     padding: 0 5%;
   }
   .close-button {
-    position: fixed;
-    top: 100px;
+    position: absolute;
+    top: 50px;
     left: 100px;
   }
 `
