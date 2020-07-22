@@ -2,30 +2,103 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { AiOutlineClose } from 'react-icons/ai'
  
+const visOrange = '#F15C2B';
+
 const Wrap = styled.div`
   position: absolute;
-  z-index: 10000;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  background: rgba(255,255,255,.8);
-  padding: 10vw;
+  background: rgba(255,255,255,.9);
+  padding: 20vw 10vw 10vw 10vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  .image-wrap {
-    width: 50%;
-  }
-  .copy-wrap {
-    width: 50%;
-    padding: 0 5%;
+  .inner-wrap {
+    .content-wrap {
+      // padding: 10vw 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .image-wrap {
+        width: 50%;
+      }
+      .copy-wrap {
+        width: 50%;
+        padding: 0 5%;
+        p {
+          margin-bottom: 0;
+          &.section {
+            color: #767676;
+            font-size: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+          }
+          &.title {
+            color: ${visOrange};
+            font-size: 2.5rem;
+            line-height: 2.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            position: relative;
+            top: -5px;
+          }
+        }
+        .cta-wrap {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin-top: 3rem;
+          p {
+            font-size: 1.1rem;
+            color: ${visOrange};
+          }
+          a {
+            position: relative;
+            z-index: 50;
+            background: ${visOrange};
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 100px;
+            font-size: 1.3rem;
+            font-weight: 100;
+            :hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
   }
   .close-button {
     position: absolute;
-    top: 50px;
-    left: 100px;
+    z-index: 50;
+    top: 4vw;
+    left: 9vw;
+    border: none;
+    background: none;
+    color: ${visOrange};
+    p {
+      display: inline-block;
+      font-weight: 400 !important;
+      position: relative;
+      :first-of-type {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+      }
+      :last-of-type {
+        font-size: 1.3rem;
+        margin-top: -5px;
+        top: 1.5px;
+      }
+    }
   }
 `
  
@@ -39,15 +112,30 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
   const { fluid } = image ? image : null
   return (
     <Wrap>
-      <div className="image-wrap">
-        <Img fluid={fluid} alt={image.title} />
+      <div className="inner-wrap">
+        <button className="close-button" onClick={() => updateOpenPiece(null)}><p><AiOutlineClose /></p> <p>RETURN</p></button>
+        <div className="content-wrap">
+          <div className="image-wrap">
+            <Img fluid={fluid} alt={image.title} />
+          </div>
+          <div className="copy-wrap">
+            <p className="section">{section}</p>
+            <p className="title">{title}</p>
+            {documentToReactComponents(copy.json)}
+            <div className="cta-wrap">
+              <p className="cta-copy-line-1">
+                See how our capabilities tie into
+              </p>
+              <p className="cta-copy-line-2">
+                Tangible Marketing Automation.
+              </p>
+              <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer">
+                Download our White Paper Today!
+              </a>
+            </div>
+          </div>      
+        </div>
       </div>
-      <div className="copy-wrap">
-        <p>{section}</p>
-        <p>{title}</p>
-        {documentToReactComponents(copy.json)}
-      </div>
-      <button className="close-button" onClick={() => updateOpenPiece(null)}><span>x</span> RETURN</button>
     </Wrap>
   )
 }
