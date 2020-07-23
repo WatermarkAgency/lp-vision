@@ -1,74 +1,184 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
  
+const visOrange = '#F15C2B';
+
 const Wrap = styled.div`
- 
+  padding: 2rem 4rem;
+  position: relative;
+  header {
+    position: relative;
+    .content-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .menu-items-wrap {
+        position: relative;
+        .menu-items-row {
+          height: 4rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .menu-item {
+            margin: 0 5px;
+            position: relative;
+            button {
+              border: none;
+              background: none;
+              font-size: 13px;
+              font-weight: bold;
+              a {
+                color: black;
+                :hover {
+                  text-decoration: none;
+                  color: ${visOrange};
+                }
+              }
+            }
+            .dropdown {
+              background: ${visOrange};
+              border: .5px solid white;
+              position: absolute;
+              z-index: 20;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .drop-item {
+                min-width: 250px;            
+                color: white;
+                padding: 10px;
+                font-size: 13px;
+                :hover {
+                  text-decoration: none;
+                  background: rgba(0,0,0,0.2);
+                }
+              }
+            }
+          }
+        }
+        .sign-up {
+          text-align: right;
+          a {
+            color: black;
+            font-weight: bold;
+            :hover {
+              text-decoration: none;
+              color: ${visOrange};
+            }
+          }
+        }
+      }
+    }
+  }
 `
  
 const VisionHeader = props => {
+  const [currDrop, setCurrDrop] = useState('')
   return (
-    <header class="header" role="banner">
-
-        {/* <!-- This navs will be applied to the topbar, above all content
-             To see additional nav styles, visit the /parts directory --> */}
-        
-      <div class="top-bar" id="top-bar-menu">
-        <div class="grid-container grid-x grid-padding-x no-padding">
-            <div class="show-for-medium-only">
-                <ul class="menu">
-                    <li><button class="menu-icon" type="button" data-toggle="off-canvas" aria-expanded="false" aria-controls="off-canvas">Menu</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="large-3 medium-3 cell logo-holder">
-                <div class="site-logo">
-                    <a href="https://visiongraphics-inc.com"><img src="https://visiongraphics-inc.com/wp-content/themes/vision-graphics-v2/assets/images/vision-graphics-logo.png" alt="Vision graphics logo" /></a>
-                </div>
-            </div>
-            <div class="show-for-large large-9 medium-9 cell">
-                <div class="signup-link">
-                    <a href="/promotions/">Sign Up for News &amp; Promotion Notifications!</a>
-                </div>
-            <ul id="menu-main-navigation" class="medium-horizontal menu dropdown" data-responsive-menu="accordion medium-dropdown" role="menubar" data-e="33ukob-e" data-mutate="n6zn8r-responsive-menu"><li id="menu-item-46" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-46 is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Our Services"><a href="https://visiongraphics-inc.com/service/">Our Services</a>
-            <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" role="menu">
-              <li id="menu-item-314" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-314 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/print-production/">Printing</a></li>
-              <li id="menu-item-311" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-311 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/direct-mail/">Direct Mail Marketing</a></li>
-              <li id="menu-item-310" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-310 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/print-management-marketing-automation/">Marketing Automation</a></li>
-              <li id="menu-item-313" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-313 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/warehousing-fulfillment/">Warehousing &amp; Fulfillment Center</a></li>
-              <li id="menu-item-312" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-312 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/marketing-analysis-variable-data-solutions/">Marketing Analytics &amp; Variable Data</a></li>
-              <li id="menu-item-1555" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-1555 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/elections-and-ballots/">Election &amp; Ballot Services</a></li>
-              <li id="menu-item-309" class="menu-item menu-item-type-post_type menu-item-object-service menu-item-309 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/service/custom-broadband-marketing-solutions/">Eagle:xm Cable &amp; Broadband Marketing</a></li>
-            </ul>
-            </li>
-            <li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-439 is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Client Resources"><a href="https://visiongraphics-inc.com/blog/">Client Resources</a>
-            <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" role="menu">
-              <li id="menu-item-1347" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1347 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/./blog/">Blog</a></li>
-              <li id="menu-item-1174" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1174 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/./vision-news/">Vision News</a></li>
-              <li id="menu-item-1175" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1175 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/./print-resources/">Print Resources</a></li>
-              <li id="menu-item-1461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1461 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/postal-guidelines/">Postal Guidelines</a></li>
-              <li id="menu-item-1176" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1176 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/./marketing-innovations/">Marketing Innovations</a></li>
-              <li id="menu-item-1179" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1179 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="/events">Events</a></li>
-            </ul>
-            </li>
-            <li id="menu-item-44" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-44 is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Our Results"><a href="https://visiongraphics-inc.com/case-studies/">Our Results</a>
-            <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" role="menu">
-              <li id="menu-item-1181" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1181 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/case-studies/">Case Studies</a></li>
-              <li id="menu-item-1187" class="menu-item menu-item-type-post_type menu-item-object-industry menu-item-1187 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/industry/outdoor-industry/">Focus: Outdoor Industry</a></li>
-              <li id="menu-item-1221" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1221 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="/service/map-printing/">Focus: Map Printing</a></li>
-            </ul>
-            </li>
-            <li id="menu-item-43" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43" role="menuitem"><a href="https://visiongraphics-inc.com/about/">About</a></li>
-            <li id="menu-item-42" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42" role="menuitem"><a href="https://visiongraphics-inc.com/careers/">Careers</a></li>
-            <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-41 is-dropdown-submenu-parent opens-right" role="menuitem" aria-haspopup="true" aria-label="Contact Us"><a href="https://visiongraphics-inc.com/contact-us/">Contact Us</a>
-            <ul class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" role="menu">
-              <li id="menu-item-1371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1371 is-submenu-item is-dropdown-submenu-item" role="menuitem"><a href="https://visiongraphics-inc.com/promotions/">Sign up for news &amp; promotion notifications!</a></li>
-            </ul>
-            </li>
-          </ul>        
+    <Wrap>
+      <header className="header" role="banner">
+        <div className="content-wrap">
+          <div className="logo-wrap">
+            <a href="https://visiongraphics-inc.com/">
+              <img src="https://visiongraphics-inc.com/wp-content/themes/vision-graphics-v2/assets/images/vision-graphics-logo.png" alt="vision graphics logo" />
+            </a>
           </div>
+          <div className="menu-items-wrap">
+            <div className="sign-up">
+              <a href="https://visiongraphics-inc.com/promotions/">Sign Up for News & Promotion Notifications!</a>
+            </div>
+            <div className="menu-items-row">
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/service/">Our Services</a></button>
+                {currDrop === 'services' &&
+                  <div className="dropdown service-drop" onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}>
+                    <a href="https://visiongraphics-inc.com/service/print-production/" className="drop-item">
+                      Printing
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/direct-mail/" className="drop-item">
+                      Direct Mail Marketing
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/print-management-marketing-automation/" className="drop-item">
+                      Marketing Automation
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/warehousing-fulfillment/" className="drop-item">
+                      Warehousing and Fulfillment Center
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/marketing-analysis-variable-data-solutions/" className="drop-item">
+                      Marketing Analytics & Variable Data
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/elections-and-ballots/" className="drop-item">
+                      Election & Ballot Services
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/custom-broadband-marketing-solutions/" className="drop-item">
+                      Eagle:xm Cable & Broadband Marketing
+                    </a>
+                  </div>
+                }
+              </div>
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('resources')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/blog/">Client Resources</a></button>
+                {currDrop === 'resources' &&
+                  <div className="dropdown resources-drop" onMouseEnter={() => setCurrDrop('resources')} onMouseLeave={() => setCurrDrop('')}>
+                    <a href="https://visiongraphics-inc.com/blog/" className="drop-item">
+                      Blog
+                    </a>
+                    <a href="https://visiongraphics-inc.com/vision-news/" className="drop-item">
+                      Vision News 
+                    </a>
+                    <a href="https://visiongraphics-inc.com/print-resources/" className="drop-item">
+                      Print Resources
+                    </a>
+                    <a href="https://visiongraphics-inc.com/postal-guidelines/" className="drop-item">
+                      Postal Guidelines
+                    </a>
+                    <a href="https://visiongraphics-inc.com/marketing-innovations/" className="drop-item">
+                      Marketing Innovations
+                    </a>
+                    <a href="https://visiongraphics-inc.com/events/" className="drop-item">
+                      Events
+                    </a>
+                  </div>
+                }
+              </div>
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('results')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/case-studies/">Our Results</a></button>
+                {currDrop === 'results' &&
+                  <div className="dropdown results-drop" onMouseEnter={() => setCurrDrop('results')} onMouseLeave={() => setCurrDrop('')}>
+                    <a href="https://visiongraphics-inc.com/case-studies/" className="drop-item">
+                      Case Studies
+                    </a>
+                    <a href="https://visiongraphics-inc.com/industry/outdoor-industry/" className="drop-item">
+                      Focus: Outdoor Industry
+                    </a>
+                    <a href="https://visiongraphics-inc.com/service/map-printing/" className="drop-item">
+                      Focus: Map Printing
+                    </a>                  
+                  </div>
+                }
+              </div>
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('about')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/about/" >About</a></button>
+              </div>
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('careers')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/careers/">Careers</a></button>
+              </div>
+              <div className="menu-item">
+                <button onMouseEnter={() => setCurrDrop('contact')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/contact-us/">Contact Us</a></button>
+                {currDrop === 'contact' &&
+                  <div className="dropdown contact-drop" onMouseEnter={() => setCurrDrop('contact')} onMouseLeave={() => setCurrDrop('')}>
+                    <a href="https://visiongraphics-inc.com/promotions/" className="drop-item">
+                      Sign up for news & promotion notifications!
+                    </a>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>          
         </div>
-      </div>
-    </header>
+      </header>
+    </Wrap>
   )
 }
  
