@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io'
  
 const visOrange = '#F15C2B';
+
+const mobileMenuWidth = '300px'
 
 const Wrap = styled.div`
   padding: 2rem 4rem;
@@ -12,6 +15,166 @@ const Wrap = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
+      .logo-wrap {
+        position: relative;
+        right: 0;
+        transition: right .3s ease;
+        &.burger-open {
+          right: -30vw;
+          transition: right .3s ease;
+        }
+      }
+      .burger-button {        
+        position: absolute;
+        z-index: 50;
+        left: 0;
+        display: none;
+        margin-right: 15px;
+        margin-left: 0px;
+        transition: margin-left .3s ease;
+        button {
+          background: white;
+          border: none;
+          border-radius: 50%;
+          padding-top: 15px;
+          .line {
+            width: 30px;
+            height: 2px;
+            background: black;
+            margin-bottom: 5px;
+            &.top, &.mid, &.bot {
+              position: relative;
+              transition: all .3s ease;
+            }
+          }
+        }
+        &.open {
+          margin-left: 250px;
+          transition: margin-left .3s ease;
+          button {
+            .line.top {
+              top: 7px;
+              transform: rotate(45deg);
+              transition: all .3s ease;
+            }
+            .line.mid {
+              opacity: 0;
+              transition: opacity .2s ease;
+            }
+            .line.bot {
+              top: -8px;
+              transform: rotate(-45deg);
+              transition: all .3s ease;
+            }
+          }
+        }
+      }
+      .mobile-menu {
+        position: fixed;
+        z-index: 1000;
+        left: -${mobileMenuWidth};
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-wrap: nowrap;
+        transition: left .3s ease;
+        .menu-col {
+          position: relative;
+          width: ${mobileMenuWidth};
+          height: 100%;
+          background: ${visOrange};
+          overflow: hidden;
+          .menu-item {
+            width: ${mobileMenuWidth};   
+            position: relative;  
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            :hover {
+              background: rgba(0,0,0,0.2);
+            }       
+            a {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 13px 20px;
+              color: white;
+              font-weight: 200;            
+              width: ${mobileMenuWidth};
+              // height: 40px;
+              line-height: 20px;
+              :hover {
+                text-decoration: none;
+              }
+            }
+            button {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 20px;
+              font-weight: 200; 
+              background: none;
+              border: none;
+              color: white;
+            }
+            button:not(.back) {
+              position: absolute;
+              right: 0;
+              font-size: 2rem;
+            }
+            button.back {
+              width: 100%;
+              text-align: left;
+              padding: 0px 20px;
+              span {
+                position: relative;
+                top: -4px;
+                font-size: 2rem;
+                margin-right: .5rem;
+              }
+            }
+          }
+          .submenu {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 50;
+            background: ${visOrange};
+            left: ${mobileMenuWidth};
+            transition: left .3s ease;
+            &.open {
+              left: 0;
+              transition: left .3s ease;
+            }
+          }
+        }
+        .offclick-col {
+          position: relative;
+          left: -50px;
+          width: 0px;
+          height: 100%;
+          button {
+            width: 0;
+            height: 100%;
+            background: none;
+            border: none;
+          }
+        }
+        &.open {
+          left: 0px;
+          transition: left .3s ease;
+          .offclick-col {
+            left: 0;
+            width: 100vw;
+            button {
+              width: 100vw;
+            }
+          }
+        }
+      }
       .menu-items-wrap {
         position: relative;
         .menu-items-row {
@@ -71,15 +234,107 @@ const Wrap = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 1000px) {
+    .content-wrap {
+      justify-content: center !important;
+      .burger-button {
+        display: block !important;
+      }
+      .menu-items-wrap {
+        display: none;
+      }
+    }
+  }
 `
  
 const VisionHeader = props => {
   const [currDrop, setCurrDrop] = useState('')
+  const [burgerOpen, setBurgerOpen] = useState(false)
+  const [currBurgSubMenu, setCurrBurgSubMenu] = useState('')
+  const toggleBurger = () => {
+    setBurgerOpen(!burgerOpen)
+  }
   return (
     <Wrap>
       <header className="header" role="banner">
         <div className="content-wrap">
-          <div className="logo-wrap">
+          <div className={burgerOpen ? "burger-button open" : "burger-button"}>
+            <button onClick={() => toggleBurger()}>
+              <div className="line top" />
+              <div className="line mid" />
+              <div className="line bot" />
+            </button>
+          </div>
+          <div className={burgerOpen ? "mobile-menu open" : "mobile-menu"}>
+            <div className="menu-col">
+              <div className="main-menu">
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/">Home</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/">Our Services</a>
+                  <button onClick={() => setCurrBurgSubMenu('services')}><IoMdArrowDropright /></button>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/blog/">Blog & Resources</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/case-studies/">Our Results</a>
+                  <button onClick={() => setCurrBurgSubMenu('results')}><IoMdArrowDropright /></button>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/about/">About</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/careers/">Careers</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/contact-us/">Contact Us</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/promotions/">Sign up for news & promotion notifications!</a>
+                </div>
+              </div>
+              <div className={currBurgSubMenu === "services" ? "submenu open" : "submenu"}>
+                <div className="menu-item">
+                  <button className="back" onClick={() => setCurrBurgSubMenu('')} ><span><IoMdArrowDropleft /> </span>{` `}Back</button>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/print-production/">Printing Services</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/print-management-marketing-automation/">Tangible Marketing Automation</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/warehousing-fulfillment/">Warehousing & Fullfillment Center</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/direct-mail/">Direct Mail Marketing Services</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/marketing-analysis-variable-data-solutions/">Marketing Analytics & Variable Data</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/service/custom-broadband-marketing-solutions/">Eagle:xm Cable & Broadband Marketing Solutions</a>
+                </div>
+              </div>
+              <div className={currBurgSubMenu === "results" ? "submenu open" : "submenu"}>
+                <div className="menu-item">
+                  <button className="back" onClick={() => setCurrBurgSubMenu('')} ><span><IoMdArrowDropleft /> </span>{` `}Back</button>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/case-studies/">Case Studies</a>
+                </div>
+                <div className="menu-item">
+                  <a href="https://visiongraphics-inc.com/industry/outdoor-industry/">Focus: Outdoor Industry</a>
+                </div>
+              </div>
+            </div>
+            <div className="offclick-col">
+              <button onClick={() => setBurgerOpen(false)} />
+            </div>
+          </div>
+          <div className={burgerOpen ? "logo-wrap burger-open" : "logo-wrap"}>
             <a href="https://visiongraphics-inc.com/">
               <img src="https://visiongraphics-inc.com/wp-content/themes/vision-graphics-v2/assets/images/vision-graphics-logo.png" alt="vision graphics logo" />
             </a>
