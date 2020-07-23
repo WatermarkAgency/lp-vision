@@ -6,6 +6,7 @@ import PopupButton from './PopupButton'
 import HoverSection from './HoverSection'
  
 const Wrap = styled.div`
+  margin: 5rem 0;
   width: 100vw;
   height: 57.48vw;
   position: relative;

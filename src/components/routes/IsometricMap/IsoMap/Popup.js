@@ -52,12 +52,12 @@ const visOrange = '#F15C2B';
 const Wrap = styled.div`
   position: absolute;
   z-index: 1000;
-  top: 0;
+  top: -3rem;
   left: 0;
   width: 100vw;
-  height: 100%;
+  height: 120%;
   background: rgba(255,255,255,.9);
-  padding: 20vw 10vw 10vw 10vw;
+  padding: 20vw 10vw 20vw 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
