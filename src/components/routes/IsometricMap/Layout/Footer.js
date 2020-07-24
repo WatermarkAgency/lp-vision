@@ -7,6 +7,8 @@ const visOrange = '#F15C2B';
 const Wrap = styled.div`
   width: 100%;
   margin-top: 5rem;
+  position: relative;
+  z-index: 10000;
   .content-wrap {
     clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
     background: url(https://visiongraphics-inc.com/wp-content/themes/vision-graphics-v2/assets/images/footer-bg.jpg) no-repeat bottom center;
