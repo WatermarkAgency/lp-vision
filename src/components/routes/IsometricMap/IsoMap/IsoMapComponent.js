@@ -79,7 +79,11 @@ const IsoMapPage = ({ sectionsData }) => {
           const bg = section.backgroundOnHover;
           const { fluid } = bg ? bg : null
           return(
-            <div className={currSec === i ? `bg` + ` section-` + i : `hidden bg` + ` section-` + i} key={section.title + i}>
+            <div 
+              className={currSec === i ? `bg` + ` section-` + i : `hidden bg` + ` section-` + i} 
+              // style={{backgroundImage: `url(` + bg.file.url + `)`, backgroundSize: 'cover'}} 
+              key={section.title + i}
+            >
               <Img fluid={fluid} alt={bg.title} />
             </div>
           )
