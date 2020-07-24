@@ -114,9 +114,11 @@ const Wrap = styled.div`
             font-size: 1.3rem;
             font-weight: 100;
             white-space: nowrap;
+            transition: background .3s ease;
             :hover {
               text-decoration: none;
-              background: #ed7953;
+              background: #db5427;
+              transition: background .3s ease;
             }
           }
         }
