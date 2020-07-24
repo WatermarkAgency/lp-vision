@@ -116,6 +116,7 @@ const Wrap = styled.div`
             white-space: nowrap;
             :hover {
               text-decoration: none;
+              background: #ed7953;
             }
           }
         }
