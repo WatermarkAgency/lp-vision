@@ -39,6 +39,7 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
           </div>      
         </div>
       </div>
+      <button className="off-click" onClick={() => updateOpenPiece(null)} />
     </Wrap>
   )
 }
@@ -104,7 +105,7 @@ const Wrap = styled.div`
           }
           a {
             position: relative;
-            z-index: 50;
+            z-index: 1002;
             background: ${visOrange};
             color: white;
             padding: 10px 20px;
@@ -143,6 +144,14 @@ const Wrap = styled.div`
         top: 1.5px;
       }
     }
+  }
+  .off-click {
+    position: absolute;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
   }
   @media only screen and (max-width: 800px) {
     padding: 20vw 2vw;

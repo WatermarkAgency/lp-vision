@@ -3,7 +3,7 @@ import styled from 'styled-components'
  
 const Wrap = styled.div`
   position: absolute;
-  background: rgba(0,0,0,0.3);
+  // background: rgba(0,0,0,0.3);
 `
  
 const HoverSection = ({ secIndex, updateCurrSec }) => {
