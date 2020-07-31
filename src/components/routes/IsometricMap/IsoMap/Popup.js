@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Container, Row, Col } from 'react-bootstrap'
 import Img from 'gatsby-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -15,13 +16,13 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
   const { fluid } = image ? image : null
   return (
     <Wrap>
-      <div className="inner-wrap">
+      <Container fluid className="inner-wrap">
         <button className="close-button" onClick={() => updateOpenPiece(null)}><p><AiOutlineClose /></p> <p>RETURN</p></button>
-        <div className="content-wrap">
-          <div className="image-wrap">
+        <Row className="content-wrap">
+          <Col sm={12} md={5} className="image-wrap">
             <Img fluid={fluid} alt={image.title} />
-          </div>
-          <div className="copy-wrap">
+          </Col>
+          <Col sm={12} md={7} className="copy-wrap">
             <p className="section">{section}</p>
             <p className="title">{title}</p>
             {documentToReactComponents(copy.json)}
@@ -36,9 +37,9 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
                 Download our White Paper Today!
               </a>
             </div>
-          </div>      
-        </div>
-      </div>
+          </Col>      
+        </Row>
+      </Container>
       <button className="off-click" onClick={() => updateOpenPiece(null)} />
     </Wrap>
   )
@@ -58,7 +59,7 @@ const Wrap = styled.div`
   width: 100vw;
   height: 120%;
   background: rgba(255,255,255,.9);
-  padding: 20vw 10vw 20vw 10vw;
+  padding: 20vw 5vw 20vw 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,10 +71,10 @@ const Wrap = styled.div`
       justify-content: center;
       align-items: center;
       .image-wrap {
-        width: 50%;
+        // width: 50%;
       }
       .copy-wrap {
-        width: 50%;
+        // width: 50%;
         padding: 0 5%;
         p {
           margin-bottom: 0;
@@ -157,36 +158,77 @@ const Wrap = styled.div`
     background: none;
     border: none;
   }
-  @media only screen and (max-width: 800px) {
-    padding: 20vw 2vw;
-    .inner-wrap {
-      margin-top: 10vw;
-    }
-    .content-wrap {
-      .image-wrap {
-        width: 30% !important;
-        .gatsby-image-wrapper {
-          width: 100%;
-        }
+  @media only screen and (max-width: 767px) {
+    .image-wrap {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .gatsby-image-wrapper {
+        width: 50%;
       }
-      .copy-wrap {
-        width: 70% !important;
-        padding: 0 3% !important;
-        .section {
+    }
+    .copy-wrap {
+      p {
+        &.section {
           font-size: 1rem !important;
         }
-        .title {
-          font-size: 1.5rem !important;
+        &.title {
+          font-size: 2rem !important;
+        }
+        font-size: .8rem;
+      }
+      ul {
+        li {
+          line-height: .9rem;
+        }
+      }
+      .cta-wrap {
+        p {
+          font-size: .8rem !important;
+        }
+        a {
+          font-size: 1rem !important;
+          position: relative;
+          z-index: 1000000;
         }
       }
     }
     .close-button {
-      top: -1vw;
+      top: 0vw;
+      left: 5vw;
     }
   }
-  @media only screen and (max-width: 600px) {
-    .inner-wrap {
-      margin-top: 30vw;
-    }
-  }
+  // @media only screen and (max-width: 800px) {
+  //   padding: 20vw 2vw;
+  //   .inner-wrap {
+  //     margin-top: 10vw;
+  //   }
+  //   .content-wrap {
+  //     .image-wrap {
+  //       width: 30% !important;
+  //       .gatsby-image-wrapper {
+  //         width: 100%;
+  //       }
+  //     }
+  //     .copy-wrap {
+  //       width: 70% !important;
+  //       padding: 0 3% !important;
+  //       .section {
+  //         font-size: 1rem !important;
+  //       }
+  //       .title {
+  //         font-size: 1.5rem !important;
+  //       }
+  //     }
+  //   }
+  //   .close-button {
+  //     top: -1vw;
+  //   }
+  // }
+  // @media only screen and (max-width: 600px) {
+  //   .inner-wrap {
+  //     margin-top: 30vw;
+  //   }
+  // }
 `

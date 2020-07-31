@@ -62,7 +62,7 @@ const PieceButton = styled.button`
 `
  
 const IsoMapPage = ({ sectionsData }) => {
-  console.log("sectionsData: ", sectionsData)
+  // console.log("sectionsData: ", sectionsData)
   const [currSec, setCurrSec] = useState(0)
   const updateCurrSec = (sec) => {
     setCurrSec(sec)
@@ -90,6 +90,7 @@ const IsoMapPage = ({ sectionsData }) => {
           )
         })}
       </div>
+      {/* NOTE - once time permits, I will make objects with all the data for the below pieces so that we can render them with maps instead of hard-coding each piece */}
       <div className="hover-secs-wrap">
         {/* Offices */}
         <HoverSection secIndex={1} updateCurrSec={updateCurrSec} />
