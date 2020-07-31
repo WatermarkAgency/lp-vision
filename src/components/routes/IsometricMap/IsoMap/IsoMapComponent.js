@@ -62,6 +62,7 @@ const PieceButton = styled.button`
 `
  
 const IsoMapPage = ({ sectionsData }) => {
+  console.log("sectionsData: ", sectionsData)
   const [currSec, setCurrSec] = useState(0)
   const updateCurrSec = (sec) => {
     setCurrSec(sec)
@@ -135,15 +136,21 @@ const IsoMapPage = ({ sectionsData }) => {
         {/* Analytics */}
         <PopupButton pieceName="analytics" secIndex={7} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
       </div>
-      {/* placeholder piece */}
-      {(openPiece !== null) && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
-      {/* {(openPiece === "office-small" || openPiece === "office-large") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "marketing") && <Popup data={sectionsData} sectionIndex={2} pieceIndex={} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
-      {/* {(openPiece === "" || openPiece === "") && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />} */}
+
+      {openPiece === "office-small" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "office-large" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "marketing" && <Popup data={sectionsData} sectionIndex={2} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-topLeft" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-middle" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={2} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-bottomLeft" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-bottomRight" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={3} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "digital-left" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "digital-right" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "shipping-room" && <Popup data={sectionsData} sectionIndex={5} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "shipping-truck" && <Popup data={sectionsData} sectionIndex={5} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "lf-left" && <Popup data={sectionsData} sectionIndex={6} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "lf-right" && <Popup data={sectionsData} sectionIndex={6} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "analytics" && <Popup data={sectionsData} sectionIndex={7} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
     </Wrap>
   )
 }

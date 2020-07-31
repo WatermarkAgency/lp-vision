@@ -64,6 +64,7 @@ const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   .inner-wrap {
+    width: 100%;
     .content-wrap {
       display: flex;
       justify-content: center;
