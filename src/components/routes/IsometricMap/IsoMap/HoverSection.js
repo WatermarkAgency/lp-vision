@@ -18,26 +18,26 @@ const HoverSection = ({ secIndex, updateCurrSec }) => {
       case 1.5:
         returnValue = {top: '94%', left: '-.5%', width: '15%', height: '5%', transform: 'rotate(-5.5deg)', clipPath: 'polygon(0% 0%, 91% 0%, 100% 50%, 91% 100%, 0% 100%)'};
         break;
-      // Marketing
+      // Education
       case 2:
         returnValue = {top: '14%', left: '20%', width: '18%', height: '23%', transform: 'rotate(-42deg) skew(19deg, 13deg)', clipPath: 'polygon(0% 70%, 22% 70%, 22% 0, 100% 0, 100% 100%, 0 100%)'};
         break;
       case 2.5:
         returnValue = {top: '91.75%', left: '13%', width: '16.5%', height: '5%', transform: 'rotate(-5.4deg)', clipPath: 'polygon(0% 0%, 91% 0%, 100% 50%, 91% 100%, 0% 100%, 9% 50%)'};
-        break;        
-      // Production
+        break;    
+      // Offset
       case 3:
-        returnValue = {top: '20%', left: '43%', width: '16%', height: '36%', transform: 'rotate(-40deg) skew(21deg, 10deg)'};
+        returnValue = {top: '27%', left: '35%', width: '17%', height: '7%', transform: 'rotate(-40deg) skew(21deg, 10deg)'};
         break;
       case 3.5:
         returnValue = {top: '89.5%', left: '28%', width: '16%', height: '5%', transform: 'rotate(-5.4deg)', clipPath: 'polygon(0% 0%, 91% 0%, 100% 50%, 91% 100%, 0% 100%, 9% 50%)'};
         break;  
-      // Digital
+      // Production
       case 4:
-        returnValue = {top: '44%', left: '56%', width: '17%', height: '17%', transform: 'rotate(-40deg) skew(21deg, 10deg)'};
+        returnValue = {top: '22%', left: '49.5%', width: '16%', height: '45%', transform: 'rotate(-40deg) skew(21deg, 10deg)'};
         break;
       case 4.5:
-        returnValue = {top: '87.5%', left: '42%', width: '16%', height: '5%', transform: 'rotate(-5.4deg)', clipPath: 'polygon(0% 0%, 91% 0%, 100% 50%, 91% 100%, 0% 100%, 9% 50%)'};
+        returnValue = {top: '87.5%', left: '42%', width: '16%', height: '5%', transform: 'rotate(-5.4deg)', clipPath: 'polygon(0% 0%, 91% 0%, 100% 50%, 91% 100%, 0% 100%, 9% 50%)'};        
         break;  
       // Shipping
       case 5:

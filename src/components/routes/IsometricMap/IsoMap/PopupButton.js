@@ -21,23 +21,26 @@ const PopupButton = ({ pieceName, secIndex, updateOpenPiece, updateCurrSec }) =>
       case 'marketing':
         return {top: '13%', left: '19%', width: '18vw', height: '13vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'production-topLeft':
+      case 'offset':
         return {top: '25%', left: '36%', width: '14vw', height: '5vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'production-middle':
+      case 'production-bb700':
         return {top: '29%', left: '44%', width: '12vw', height: '7vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'production-bottomLeft':
+      case 'production-mailing':
         return {top: '40%', left: '52%', width: '6vw', height: '4vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'production-bottomRight':
-        return {top: '34%', left: '58%', width: '3vw', height: '6vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
+      case 'production-mapFolder':
+        return {top: '35%', left: '59%', width: '2vw', height: '5vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'digital-left':
-        return {top: '45%', left: '55%', width: '15vw', height: '4vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
+      case 'production-wohlenberg':
+        return {top: '45%', left: '55%', width: '16vw', height: '4vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
-      case 'digital-right':
+      case 'production-digimaster':
         return {top: '47%', left: '63%', width: '12vw', height: '5vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
+        break;
+      case 'offset':
+        return {top: '25%', left: '36%', width: '14vw', height: '5vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
         break;
       case 'shipping-room':
         return {top: '1%', left: '61%', width: '12vw', height: '29vw', transform: 'rotate(-42deg) skew(20deg, 13deg)'};
