@@ -62,7 +62,7 @@ const PieceButton = styled.button`
 `
  
 const IsoMapPage = ({ sectionsData }) => {
-  // console.log("sectionsData: ", sectionsData)
+  console.log("sectionsData: ", sectionsData)
   const [currSec, setCurrSec] = useState(0)
   const updateCurrSec = (sec) => {
     setCurrSec(sec)
@@ -98,10 +98,10 @@ const IsoMapPage = ({ sectionsData }) => {
         {/* Marketing */}
         <HoverSection secIndex={2} updateCurrSec={updateCurrSec} />
         <HoverSection secIndex={2.5} updateCurrSec={updateCurrSec} />
-        {/* Production */}
+        {/* Offset */}
         <HoverSection secIndex={3} updateCurrSec={updateCurrSec} />
         <HoverSection secIndex={3.5} updateCurrSec={updateCurrSec} />
-        {/* Digital */}
+        {/* Production */}
         <HoverSection secIndex={4} updateCurrSec={updateCurrSec} />
         <HoverSection secIndex={4.5} updateCurrSec={updateCurrSec} />
         {/* Shipping */}
@@ -120,14 +120,14 @@ const IsoMapPage = ({ sectionsData }) => {
         <PopupButton pieceName="office-large" secIndex={1} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
         {/* Marketing */}
         <PopupButton pieceName="marketing" secIndex={2} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        {/* Offset */}
+        <PopupButton pieceName="offset" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
         {/* Production */}
-        <PopupButton pieceName="production-topLeft" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
-        <PopupButton pieceName="production-middle" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
-        <PopupButton pieceName="production-bottomLeft" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
-        <PopupButton pieceName="production-bottomRight" secIndex={3} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
-        {/* Production */}
-        <PopupButton pieceName="digital-left" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
-        <PopupButton pieceName="digital-right" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-bb700" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-mailing" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-mapFolder" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-wohlenberg" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
+        <PopupButton pieceName="production-digimaster" secIndex={4} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
         {/* Shipping */}
         <PopupButton pieceName="shipping-room" secIndex={5} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
         <PopupButton pieceName="shipping-truck" secIndex={5} updateOpenPiece={updateOpenPiece} updateCurrSec={updateCurrSec} />
@@ -141,12 +141,12 @@ const IsoMapPage = ({ sectionsData }) => {
       {openPiece === "office-small" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
       {openPiece === "office-large" && <Popup data={sectionsData} sectionIndex={1} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
       {openPiece === "marketing" && <Popup data={sectionsData} sectionIndex={2} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "production-topLeft" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "production-middle" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={2} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "production-bottomLeft" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "production-bottomRight" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={3} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "digital-left" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
-      {openPiece === "digital-right" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "offset" && <Popup data={sectionsData} sectionIndex={3} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}      
+      {openPiece === "production-bb700" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-mailing" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-mapFolder" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={2} updateOpenPiece={updateOpenPiece} />}
+      {openPiece === "production-wohlenberg" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={3} updateOpenPiece={updateOpenPiece} />}      
+      {openPiece === "production-digimaster" && <Popup data={sectionsData} sectionIndex={4} pieceIndex={4} updateOpenPiece={updateOpenPiece} />}      
       {openPiece === "shipping-room" && <Popup data={sectionsData} sectionIndex={5} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
       {openPiece === "shipping-truck" && <Popup data={sectionsData} sectionIndex={5} pieceIndex={1} updateOpenPiece={updateOpenPiece} />}
       {openPiece === "lf-left" && <Popup data={sectionsData} sectionIndex={6} pieceIndex={0} updateOpenPiece={updateOpenPiece} />}
