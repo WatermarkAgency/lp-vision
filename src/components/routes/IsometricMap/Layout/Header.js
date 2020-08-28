@@ -300,6 +300,9 @@ const VisionHeader = props => {
                   <button className="back" onClick={() => setCurrBurgSubMenu('')} ><span><IoMdArrowDropleft /> </span>{` `}Back</button>
                 </div>
                 <div className="menu-item">
+                  <a href="https://visiongraphics.netlify.app/isometric-map">Capabilities Map</a>
+                </div>
+                <div className="menu-item">
                   <a href="https://visiongraphics-inc.com/service/print-production/">Printing Services</a>
                 </div>
                 <div className="menu-item">
@@ -348,6 +351,9 @@ const VisionHeader = props => {
                 <button onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/service/">Our Services</a></button>
                 {currDrop === 'services' &&
                   <div className="dropdown service-drop" onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}>
+                    <a href="https://visiongraphics.netlify.app/isometric-map" className="drop-item">
+                      Capabilities Map
+                    </a>
                     <a href="https://visiongraphics-inc.com/service/print-production/" className="drop-item">
                       Printing
                     </a>
