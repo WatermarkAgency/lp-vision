@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { INLINES } from '@contentful/rich-text-types';
 import Theme from "../../../vars/ThemeOptions";
 
 const Wrap = styled.div`

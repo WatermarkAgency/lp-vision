@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
-import Theme from '../../../../vars/ThemeOptions'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import PreviewSlider from './PreviewPDF'
  

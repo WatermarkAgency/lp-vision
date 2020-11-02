@@ -24,11 +24,11 @@ const Wrap = styled.div`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, angle }) => {
   return (
     <Wrap>
       <MainLayout
-        Header={() => <VisionHeader />}
+        Header={() => <VisionHeader angle />}
         Footer={() => <VisionFooter />}
       >
         {children}

@@ -114,7 +114,7 @@ const ThankYou = ({ thankYouTitle, thankYouCopy, downloadButtonCopy, downloadPre
         </div>
         <div className="download-button">
           <button>
-            <a download="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" href="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" target="_blank">
+            <a download="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" href="https://downloads.ctfassets.net/5235n2cu1xlz/42sruUPvBAl1wc1L01Za0K/e098cf5604f03b4e26453ce28f68d467/Tangible_Marketing_Automation.pdf" target="_blank" rel="noopener noreferrer">
               {downloadButtonCopy}
             </a>
           </button>
