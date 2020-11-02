@@ -350,7 +350,7 @@ const VisionHeader = props => {
               <div className="menu-item">
                 <button onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}><a href="https://visiongraphics-inc.com/service/">Our Services</a></button>
                 {currDrop === 'services' &&
-                  <div className="dropdown service-drop" onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')}>
+                  <div className="dropdown service-drop" onMouseEnter={() => setCurrDrop('services')} onMouseLeave={() => setCurrDrop('')} role="dropdown menu" aria-label="dropdown menu">
                     <a href="https://visiongraphics.netlify.app/isometric-map" className="drop-item">
                       Capabilities Map
                     </a>

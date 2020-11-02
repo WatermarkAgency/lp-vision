@@ -21,7 +21,7 @@ const MessageWrap = styled(Container)`
 
 export default ({ pageContext, data }) => {
   const { lp } = data;
-  const { headline, image, message, code } = lp;
+  const { headline, image, message } = lp;
   const { copy } = message ? message : { copy: null };
   return (
     <Layout>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IoIosArrowDown } from 'react-icons/io'
  
 const Hero = ({ bg }) => {
   return (
@@ -19,12 +18,12 @@ const Hero = ({ bg }) => {
           </div>          
         </a>
         <div className="download-wrap">
-          <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer" className="download">
+          <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noopener noreferrer" className="download">
             <p>Learn about Tangible Marketing Automation Services</p>
             <p>Download our White Paper Today!</p>            
           </a>
           <div className="arrow-circle">
-            <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer">{`>`}</a>
+            <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noopener noreferrer">{`>`}</a>
           </div>
         </div>
         <div className="dark-overlay" />

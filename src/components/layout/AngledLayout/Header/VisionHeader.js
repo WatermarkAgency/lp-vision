@@ -5,7 +5,8 @@ import { Container, Row, Col } from "react-bootstrap"
 import styled from "styled-components";
 import Theme from "../../../../vars/ThemeOptions"
 
-const HeaderWrap = styled.div`
+const Styled = {}
+Styled.HeaderWrap = styled.div`
   position: relative;
   .logo-wrap {
     width: 25%;
@@ -37,7 +38,7 @@ const HeaderWrap = styled.div`
   }
 `;
 
-const VisionHeader = () => {
+const VisionHeader = ({ angle }) => {
   const { options } = useStaticQuery(graphql`
     {
       options: contentfulGlobal {
@@ -56,7 +57,7 @@ const VisionHeader = () => {
   `);
   const { logoWhite } = options;
   return (
-    <HeaderWrap>
+    <Styled.HeaderWrap>
       <Container>
         <div className="logo-wrap">
           <ContentfulLogo
@@ -69,7 +70,7 @@ const VisionHeader = () => {
         </div>
       </Container> 
       <div className="bg-div" />
-    </HeaderWrap>
+    </Styled.HeaderWrap>
   );
 };
 
