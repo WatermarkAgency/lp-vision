@@ -53,7 +53,7 @@ const WrapCont = styled(Container)`
 `
  
 const LBMainCopy = ({ richText1, richText2 }) => {
-  console.log("richText2: ", richText2)
+  // console.log("richText2: ", richText2)
   const CustomListItem = ({ copy }) => (
     <div className="custom-li">
       <IoMdArrowDropright size="2rem" /> 
@@ -63,7 +63,7 @@ const LBMainCopy = ({ richText1, richText2 }) => {
   const options = {
     renderNode: {
       [BLOCKS.LIST_ITEM]: (node) => {
-        console.log("node: ", node)
+        // console.log("node: ", node)
         const { value } = node.content[0].content[0];
         return <CustomListItem copy={value} />
       }
