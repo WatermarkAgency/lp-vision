@@ -13,7 +13,8 @@ const WrapCont = styled(Container)`
       padding-right: 2rem;
       border-right: 1px solid ${Theme.hex('primary')};
       p {
-        font-weight: 200;
+        font-weight: 300;
+        color: ${Theme.hex('textPrimary')};
       }
     }
     &.right {
@@ -37,8 +38,8 @@ const WrapCont = styled(Container)`
             transform: scaleY(.8);
           }
           p {
-            color: ${Theme.hex('black')};
-            font-weight: 200;
+            color: ${Theme.hex('textPrimary')};
+            font-weight: 300;
             margin-bottom: 0;
           }
           :nth-of-type(2) {
