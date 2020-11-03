@@ -142,6 +142,9 @@ const Theme = new ThemeOptions({
     white: {
       hex: "#FFFFFF"
     },
+    black: {
+      hex: "#000000"
+    },
   },
   paths: {
         blog: `/blog/`,

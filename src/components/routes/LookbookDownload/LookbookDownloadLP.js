@@ -2,10 +2,21 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import LBHeaderAndHero from './LBHeaderAndHero/LBHeaderAndHero'
+import LBMainCopy from './LBMainCopy'
 import LBPreviewDownload from './LBPreviewDownload'
  
 const Wrap = styled.div`
   position: relative;
+  .pull-up {
+    position: relative;
+    top: -18vw;
+    @media only screen and (min-width: 1300px) {
+      top: -15rem;
+    }
+    @media only screen and (max-width: 700px) {
+      top: -20vw;
+    }
+  }
 `
  
 const LookbookDownloadLP = ({ data }) => {
@@ -15,7 +26,10 @@ const LookbookDownloadLP = ({ data }) => {
   return (
     <Wrap>
       <LBHeaderAndHero titleLine1={shortText1} titleLine2={shortText2} bg={files[0]} />
-      <LBPreviewDownload preview={files[1]} buttonCopy={shortText4} />
+      <div className="pull-up">
+        <LBPreviewDownload preview={files[1]} buttonCopy={shortText4} />
+        <LBMainCopy richText1={richText1} richText2={richText2} />
+      </div>
     </Wrap>
   )
 }
