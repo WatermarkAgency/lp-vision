@@ -5,7 +5,9 @@ import Theme from '../../../vars/ThemeOptions'
  
 const WrapCont = styled(Container)`
   text-align: center;
-  font-weight: 600;
+  font-family: "AtlantaBold";
+  font-size: 1.1rem;
+  // font-weight: 600;
   p {
     color: ${Theme.hex('textPrimary')};
     padding: 10px 0 15px 0;
