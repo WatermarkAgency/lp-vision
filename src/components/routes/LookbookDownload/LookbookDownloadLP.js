@@ -8,6 +8,7 @@ import LBPreviewDownload from './LBPreviewDownload'
  
 const Wrap = styled.div`
   position: relative;
+  // font-family: Atlanta;
   .pull-up {
     position: relative;
     top: -18vw;

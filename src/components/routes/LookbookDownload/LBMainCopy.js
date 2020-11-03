@@ -28,10 +28,10 @@ const WrapCont = styled(Container)`
         padding-left: 0;
         .custom-li {
           display: flex;
+          justify-content: flex-start;
           position: relative;
           left: -11px;
           svg {
-            width: 2rem !important;
             position: relative;
             top: -5px;
             fill: ${Theme.hex('primary')};
@@ -41,13 +41,10 @@ const WrapCont = styled(Container)`
             color: ${Theme.hex('textPrimary')};
             font-weight: 300;
             margin-bottom: 0;
+            max-width: 90%;
           }
           :nth-of-type(2) {
             top: -4px;
-            left: -12px;
-            svg {
-              width: 4.1rem !important;
-            }
           }
         }
       }
