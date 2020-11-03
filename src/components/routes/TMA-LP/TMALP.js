@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Layout from "../../layout/AngledLayout/AngledLayout";
-import { graphql } from "gatsby";
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import AngledPageTitle from "./AngledPageTitle";
@@ -24,14 +23,14 @@ const TMALP = ({ data }) => {
   }
   const { lp } = data;
   // console.log(data)
-  const { shortText1, shortText2, shortText3, shortText4, shortText5, shortText6, richText1, richText2, files, file, shortText7, shortText8, file2 } = lp;
+  const { shortText1, shortText2, shortText3, shortText4, shortText5, shortText6, richText1, files, file1, shortText7, shortText8, file2 } = lp;
   return (
     <Layout>
       <ContentWrap fluid>
         <div className="main-page" style={formSent ? {opacity: 0, height: '43rem'} : null}>
           <AngledPageTitle firstLine={shortText1} secondLine={shortText2} subtitle={shortText3} buttonText={shortText4} />
           <CopyAndPreview copy={richText1} preview={files} formCopy={shortText5} />
-          <SSForm formCopy={shortText5} download={file} formSubmit={updateFormSent} />
+          <SSForm formCopy={shortText5} download={file1} formSubmit={updateFormSent} />
         </div>
         {formSent &&
           <ThankYou thankYouTitle={shortText6} thankYouCopy={shortText7} downloadButtonCopy={shortText8} downloadPreview={file2} />
@@ -42,44 +41,4 @@ const TMALP = ({ data }) => {
   );
 };
 
-export default TMALP
-
-// export const query = graphql`
-//   query pageAngledQuery($slug: String!) {
-//     lp: contentfulLandingPagesAngled(slug: { eq: $slug }) {
-//       title
-//       slug
-//       shortText1
-//       shortText2
-//       shortText3
-//       shortText4
-//       shortText5
-//       shortText6
-//       shortText7
-//       shortText8
-//       richText1 {
-//         json
-//       }
-//       richText2 {
-//         json
-//       }      
-//       files {
-//         title
-//         fluid {
-//           ...GatsbyContentfulFluid
-//         }
-//       }
-//       file1 {
-//         file {
-//           url
-//         }
-//       }
-//       file2 {
-//         title
-//         fluid {
-//           ...GatsbyContentfulFluid
-//         }
-//       }
-//     }
-//   }
-// `;
+export default TMALP;
