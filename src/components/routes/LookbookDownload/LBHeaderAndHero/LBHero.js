@@ -27,9 +27,10 @@ const HeroWrap = styled.div`
     margin-bottom: 0;
   }
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     text-transform: uppercase;
     font-weight: 600;
+    font-family: "AtlantaBold";
   }
   .image-wrap {
     .gatsby-image-wrapper, .dark-overlay {

@@ -8,7 +8,7 @@ import LBPreviewDownload from './LBPreviewDownload'
  
 const Wrap = styled.div`
   position: relative;
-  // font-family: Atlanta;
+  font-family: Atlanta;
   .pull-up {
     position: relative;
     top: -18vw;
@@ -23,7 +23,7 @@ const Wrap = styled.div`
  
 const LookbookDownloadLP = ({ data }) => {
   const { lp } = data;
-  console.log(data)
+  // console.log(data)
   const { shortText1, shortText2, shortText3, shortText4, richText1, richText2, files, file1, file2 } = lp;
   return (
     <Wrap>

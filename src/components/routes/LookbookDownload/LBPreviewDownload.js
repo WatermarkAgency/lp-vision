@@ -33,7 +33,7 @@ const WrapCont = styled(Container)`
 `
  
 const LBPreviewDownload = ({ preview, buttonCopy }) => {
-  console.log("preview: ", preview)
+  // console.log("preview: ", preview)
   const { fluid, title } = preview ? preview : { preview: null }
   return (
     <WrapCont>
