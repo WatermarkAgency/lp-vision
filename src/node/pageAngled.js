@@ -46,7 +46,7 @@ export const query = graphql`
       }      
       files {
         title
-        fluid {
+        fluid(maxWidth: 2000, quality: 75) {
           ...GatsbyContentfulFluid
         }
       }
@@ -57,7 +57,7 @@ export const query = graphql`
       }
       file2 {
         title
-        fluid {
+        fluid(maxWidth: 2000, quality: 75) {
           ...GatsbyContentfulFluid
         }
       }
