@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 // import SharpSpringForm from "../components/common/SharpForm";
 import TMALP from '../components/routes/TMA-LP/TMALP'
+import LookbookDownloadLP from "../components/routes/LookbookDownload/LookbookDownloadLP";
 
 export default ({ pageContext, data }) => {
   // console.log(data)
@@ -9,6 +10,9 @@ export default ({ pageContext, data }) => {
   switch(pageContext.slug) {
     case "tangible-marketing-automation":
       JSX = <TMALP data={data} />;
+      break;
+    case "lookbook-download":
+      JSX = <LookbookDownloadLP data={data} />;
       break;
     default:
       JSX = <h3>Sorry, this page hasn't been created yet.</h3>

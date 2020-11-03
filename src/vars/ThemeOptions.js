@@ -125,7 +125,7 @@ const Theme = new ThemeOptions({
   color: {
     // colors must be hexadecimal thus far
     primary: {
-      hex: "#048CB9"
+      hex: "#FF5825"
     },
     secondary: {
       hex: "#ebe72a"
