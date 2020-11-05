@@ -30,7 +30,7 @@ const HeroWrap = styled.div`
     font-size: 2.7rem;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: Atlanta;
+    // font-family: Atlanta;
   }
   .image-wrap {
     .gatsby-image-wrapper, .dark-overlay {
