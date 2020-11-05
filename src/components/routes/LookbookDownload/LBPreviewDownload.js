@@ -17,8 +17,9 @@ const WrapCont = styled(Container)`
     a {
       background: ${Theme.hex('primary')};
       color: ${Theme.hex('white')};
+      font-size: 1.4rem;
       font-weight: 300;
-      padding: 5px 15px;
+      padding: 7px 25px;
       margin: 2rem 0 4rem 0;
       clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
       transform: scale(1);
