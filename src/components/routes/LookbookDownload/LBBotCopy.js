@@ -5,9 +5,9 @@ import Theme from '../../../vars/ThemeOptions'
  
 const WrapCont = styled(Container)`
   text-align: center;
-  font-family: AtlantaBold, Atlanta;
+  font-family: Atlanta;
   font-size: 1.1rem;
-  // font-weight: 600;
+  font-weight: bold;
   p {
     color: ${Theme.hex('textPrimary')};
     padding: 10px 0 15px 0;
