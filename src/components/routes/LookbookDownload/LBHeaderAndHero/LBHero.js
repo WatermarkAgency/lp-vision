@@ -29,8 +29,8 @@ const HeroWrap = styled.div`
   h1 {
     font-size: 2.7rem;
     text-transform: uppercase;
-    font-weight: 600;
-    font-family: AtlantaBold, Atlanta;
+    font-weight: bold;
+    font-family: Atlanta;
   }
   .image-wrap {
     .gatsby-image-wrapper, .dark-overlay {
