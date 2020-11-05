@@ -13,7 +13,7 @@ const WrapCont = styled(Container)`
       padding-right: 2rem;
       border-right: 1px solid ${Theme.hex('primary')};
       p {
-        font-weight: 300;
+        font-weight: normal;
         color: ${Theme.hex('textPrimary')};
       }
     }
@@ -22,7 +22,7 @@ const WrapCont = styled(Container)`
       p {
         margin-bottom: 5px;
         color: ${Theme.hex('primary')};
-        font-weight: 600;
+        font-weight: bold;
       }
       ul {
         padding-left: 0;
