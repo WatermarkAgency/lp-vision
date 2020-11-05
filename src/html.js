@@ -16,6 +16,18 @@ export default function HTML(props) {
             `
           }} />
         {/* <!-- End Google Tag Manager --> */}
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137268051-1"></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-137268051-1');
+            `
+          }}>
+        {/* <!-- End Global site tag (gtag.js) - Google Analytics --> */}
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
