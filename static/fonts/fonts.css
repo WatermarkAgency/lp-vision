@@ -1,11 +1,10 @@
 @font-face {
   font-family: "Atlanta";
-  src: url("/fonts/BRATLRS0.ttf");
-  font-weight: normal;
+  src: url("Atlanta.ttf");
 }
 
 @font-face {
   font-family: "Atlanta";
-  src: url("/fonts/BRATLBS0.ttf");
+  src: url("AtlantaBold.ttf");
   font-weight: bold;
 }

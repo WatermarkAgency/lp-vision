@@ -5,7 +5,7 @@ import Theme from '../../../vars/ThemeOptions'
  
 const WrapCont = styled(Container)`
   text-align: center;
-  // font-family: Atlanta;
+  font-family: AtlantaBold, Atlanta;
   font-size: 1.1rem;
   font-weight: bold;
   p {
