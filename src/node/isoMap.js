@@ -31,7 +31,7 @@ export const query = graphql`
         title
         backgroundOnHover {
           title
-          fluid(maxWidth: 3080, quality: 25) {
+          fluid(maxWidth: 3080, quality: 100) {
             ...GatsbyContentfulFluid
           }
           file {
