@@ -69,7 +69,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Atlanta", "AtlantaBold"],
+          families: ["Atlanta, AtlantaBold"],
           urls: ["/fonts/fonts.css"],
         },
       },
