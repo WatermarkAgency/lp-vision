@@ -41,7 +41,7 @@ const LBPreviewDownload = ({ preview, buttonCopy }) => {
       <Row>
         <Col className="content-col">
           <Img fluid={fluid} alt={title} />
-          <a href="#" role="download" download>
+          <a href="/assets/Lookbook_Project_Design_Options.pdf" role="download" download>
             {buttonCopy}
           </a>
         </Col>
