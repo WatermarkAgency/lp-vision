@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Atlanta';
+    src: url('Atlanta-Demi.woff2') format('woff2'),
+        url('Atlanta-Demi.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('Atlanta-Book.woff2') format('woff2'),
+        url('Atlanta-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('Atlanta-DemiOblique.woff2') format('woff2'),
+        url('Atlanta-DemiOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Atlanta';
+    src: url('Atlanta-BookOblique.woff2') format('woff2'),
+        url('Atlanta-BookOblique.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

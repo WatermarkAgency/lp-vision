@@ -7,4 +7,4 @@
 // You can delete this file if you're not using it
 
 
-require("./src/fonts/fonts.css");
+require("./src/fonts/atlanta-font/stylesheet.css");
