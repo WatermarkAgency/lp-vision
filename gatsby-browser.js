@@ -5,6 +5,6 @@
  */
 
 // You can delete this file if you're not using it
-import "./node_modules/bootstrap/dist/css/bootstrap.css";
+require("./node_modules/bootstrap/dist/css/bootstrap.css");
 
 require("./src/fonts/atlanta-font/stylesheet.css");
