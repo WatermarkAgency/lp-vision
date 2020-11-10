@@ -22,12 +22,12 @@ const HeroWrap = styled.div`
     text-align: center;
   }
   h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 300;
     margin-bottom: 0;
   }
   h1 {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
     text-transform: uppercase;
     font-weight: bold;
   }
