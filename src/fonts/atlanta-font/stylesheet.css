@@ -2,7 +2,7 @@
     font-family: 'Atlanta';
     src: url('Atlanta-Demi.woff2') format('woff2'),
         url('Atlanta-Demi.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
