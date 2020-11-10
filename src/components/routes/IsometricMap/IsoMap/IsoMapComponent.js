@@ -62,7 +62,7 @@ const PieceButton = styled.button`
 `
  
 const IsoMapPage = ({ sectionsData }) => {
-  console.log("sectionsData: ", sectionsData)
+  // console.log("sectionsData: ", sectionsData)
   const [currSec, setCurrSec] = useState(0)
   const updateCurrSec = (sec) => {
     setCurrSec(sec)
