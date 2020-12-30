@@ -248,7 +248,7 @@ const WhatIsVisionsTMA = ({ data }) => {
           <Row className="border-top-bot">
             <Col className="centered">
               {documentToReactComponents(richText4.json)}
-              <button onClick={() => setShowForm(!showForm)} aria-label="dropdown form to contact Vision Graphics">
+              <button onClick={() => setShowForm(true)} aria-label="dropdown form to contact Vision Graphics">
                 {shortText8}
               </button>
               <FormWrap className={showForm ? "show" : "hide"}>

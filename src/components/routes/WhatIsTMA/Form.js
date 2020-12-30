@@ -3,6 +3,15 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import Theme from "../../../vars/ThemeOptions";
 
+const growOnHover = `
+  transform: scale(1);
+  transition: all .3s ease;
+  :hover {
+    transform: scale(1.1);
+    transition: all .3s ease;
+  }
+`
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,6 +40,7 @@ const Wrap = styled.div`
           font-weight: bold;
           border: none;
           clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
+          ${growOnHover}
         }
       }
     }
@@ -163,7 +173,7 @@ const WhatIsTMAContactForm = ({ formSubmit }) => {
                     <input
                       type="text"
                       name="email"
-                      placeholder="Email"
+                      placeholder="Email (Required)"
                       value={formData.email}
                       onChange={handleChange}
                     />
