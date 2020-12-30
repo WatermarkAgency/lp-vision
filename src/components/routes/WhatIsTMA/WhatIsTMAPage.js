@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import { BLOCKS } from '@contentful/rich-text-types'
+import { IoMdArrowDropright } from 'react-icons/io'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components'
 import WhatIsHeaderAndHero from './WhatIsHeaderHero/WhatIsHeaderHero'
@@ -7,6 +9,15 @@ import Img from 'gatsby-image'
 import get from 'lodash/get'
 import Theme from '../../../vars/ThemeOptions'
  
+const growOnHover = `
+  transform: scale(1);
+  transition: all .3s ease;
+  :hover {
+    transform: scale(1.1);
+    transition: all .3s ease;
+  }
+`
+
 const Wrap = styled.div`
   font-family: Atlanta;
   // font-weight: 200;
@@ -79,17 +90,70 @@ const LeftCol = styled(Col)`
   border-right: 1px solid ${Theme.hex('primary')};
   padding-right: 1rem;
   margin-top: 1rem;
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+  .tma-cta-wrap {
+    margin-top: 2rem;
+    text-align: center;
+    a {
+      display: block;
+      border: 3px solid ${Theme.hex('primary')};
+      color: ${Theme.hex('textPrimary')};
+      padding: 1rem;
+      width: 20rem;
+      font-weight: bold;
+      ${growOnHover}
+      :hover {
+        text-decoration: none;
+      }
+    }
+  }
 `
 const RightCol = styled(Col)`
   margin-top: 1rem;
+  ul {
+    padding-left: 0;
+    .custom-li {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      left: -0px;
+      svg {
+        position: relative;
+        top: -37px;
+        fill: ${Theme.hex('primary')};
+      }
+      span {
+        span {
+          color: ${Theme.hex('primary')};
+        }
+      }
+      :nth-of-type(2) {
+        left: -6px;
+        svg {
+          left: 3px;
+          transform: scale(.8);
+        }
+      }
+      :nth-of-type(3) {
+        // left: -6px;
+        svg {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
 `
 const FormWrap = styled.div`
   &.hide {
+    padding-top: 0;
     opacity: 0;
     height: 0;
     transition: all .3s ease;
   }
   &.show {
+    padding-top: 1rem;
     opacity: 1;
     height: auto;
     transition: all .3s ease;
@@ -103,6 +167,24 @@ const WhatIsVisionsTMA = ({ data }) => {
   const { title, shortText1, shortText2, shortText3, shortText4, shortText5, shortText6, shortText7, shortText8, richText1, richText2, richText3, richText4, file1, file2 } = lp;
   const previewFluid = get(file2, "fluid")
   const previewTitle = get(file2, "title")
+
+  const CustomListItem = ({ boldCopy, copy }) => (
+    <div className="custom-li">
+      <IoMdArrowDropright size="6rem" /> 
+      <span><span>{boldCopy}</span>{copy}</span>
+    </div>
+  )
+  const options = {
+    renderNode: {
+      [BLOCKS.LIST_ITEM]: (node) => {
+        console.log("node: ", node)
+        const boldCopy = get(node.content[0].content[0], "value")
+        const copy = get(node.content[0].content[1], "value")
+        return <CustomListItem boldCopy={boldCopy} copy={copy} />
+      }
+    }
+  }
+
   return (
     <Wrap>
       <WhatIsHeaderAndHero titleLine1={shortText1} titleLine2={shortText2} bg={file1} />
@@ -128,17 +210,15 @@ const WhatIsVisionsTMA = ({ data }) => {
               <div>
                 {documentToReactComponents(richText2.json)}
               </div>
-              <div className="tma-cta-intro">
-                {shortText5}
-              </div>
-              <div className="tma-cta-button">
+              <div className="tma-cta-wrap centered">
+                <p>{shortText5}</p>
                 <a href={shortText7} target="_blank" rel="noopener noreferrer">
                   {shortText6}
                 </a>
               </div>
             </LeftCol>
             <RightCol md={12} lg={6}>
-              {documentToReactComponents(richText3.json)}
+              {documentToReactComponents(richText3.json, options)}
             </RightCol>
           </Row>
           <Row className="border-top-bot">
