@@ -8,7 +8,9 @@ import WhatIsHeaderAndHero from './WhatIsHeaderHero/WhatIsHeaderHero'
 import Img from 'gatsby-image'
 import get from 'lodash/get'
 import Theme from '../../../vars/ThemeOptions'
- 
+import Form from './Form'
+
+
 const growOnHover = `
   transform: scale(1);
   transition: all .3s ease;
@@ -67,8 +69,12 @@ const PreviewWrap = styled.div`
   justify-content: center;  
   .gatsby-image-wrapper {
     width: 65vw;
-    min-width: 25rem;
     max-width: 65rem;
+  }
+  @media only screen and (max-width: 575px) {
+    .gatsby-image-wrapper {
+      width: 90vw;
+    }
   }
 `
 const CTA = styled.a`
@@ -95,6 +101,7 @@ const LeftCol = styled(Col)`
   }
   .tma-cta-wrap {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     text-align: center;
     a {
       display: block;
@@ -108,6 +115,9 @@ const LeftCol = styled(Col)`
         text-decoration: none;
       }
     }
+  }
+  @media only screen and (max-width: 991px) {
+    border-right: none;
   }
 `
 const RightCol = styled(Col)`
@@ -141,6 +151,20 @@ const RightCol = styled(Col)`
         svg {
           transform: scale(1.1);
         }
+      }
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .custom-li {
+      :nth-of-type(2) {
+        top: 9px;
+      }
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .custom-li {
+      :nth-of-type(2) {
+        left: -8px !important;
       }
     }
   }
@@ -228,7 +252,7 @@ const WhatIsVisionsTMA = ({ data }) => {
                 {shortText8}
               </button>
               <FormWrap className={showForm ? "show" : "hide"}>
-                form
+                <Form />
               </FormWrap>
             </Col>
           </Row>
