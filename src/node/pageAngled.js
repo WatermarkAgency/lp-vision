@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 // import SharpSpringForm from "../components/common/SharpForm";
 import TMALP from '../components/routes/TMA-LP/TMALP'
 import LookbookDownloadLP from "../components/routes/LookbookDownload/LookbookDownloadLP";
+import WhatIsVisionsTMA from "../components/routes/WhatIsTMA/WhatIsTMAPage";
 
 export default ({ pageContext, data }) => {
   // console.log(data)
@@ -13,6 +14,9 @@ export default ({ pageContext, data }) => {
       break;
     case "lookbook-download":
       JSX = <LookbookDownloadLP data={data} />;
+      break;
+    case "what-is-visions-tangible-marketing-automation":
+      JSX = <WhatIsVisionsTMA data={data} />;
       break;
     default:
       JSX = <h3>Sorry, this page hasn't been created yet.</h3>
@@ -43,7 +47,13 @@ export const query = graphql`
       }
       richText2 {
         json
-      }      
+      }     
+      richText3 {
+        json
+      }    
+      richText4 {
+        json
+      }     
       files {
         title
         fluid(maxWidth: 2000, quality: 75) {
@@ -51,6 +61,10 @@ export const query = graphql`
         }
       }
       file1 {
+        title
+        fluid(maxWidth: 2000, quality: 75) {
+          ...GatsbyContentfulFluid
+        }
         file {
           url
         }
@@ -59,6 +73,9 @@ export const query = graphql`
         title
         fluid(maxWidth: 2000, quality: 75) {
           ...GatsbyContentfulFluid
+        }
+        file {
+          url
         }
       }
     }
