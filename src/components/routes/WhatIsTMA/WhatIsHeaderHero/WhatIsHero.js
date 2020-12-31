@@ -1,9 +1,7 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import Theme from '../../../../vars/ThemeOptions'
-import VisLogo from '../../../common/VisLogo'
 
 const HeroWrap = styled.div`
   position: relative;

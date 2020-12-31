@@ -119,21 +119,21 @@ const VisionFooter = props => {
             <div className="info">
               <p>5105 E 41st Ave</p> 
               <p>Denver, CO 80216</p>
-              <a className="map" href="https://goo.gl/maps/2XjaUyfXRHK2" target="_blank" rel="noreferrer">Map It</a>
+              <a className="map" href="https://goo.gl/maps/2XjaUyfXRHK2" target="_blank" rel="noopener noreferrer">Map It</a>
               <div className="socials">
-                <a href="https://www.facebook.com/visiongraphicsinc/" target="_blank" rel="noreferrer">
+                <a href="https://www.facebook.com/visiongraphicsinc/" target="_blank" rel="noopener noreferrer">
                   <FaFacebookSquare />
                 </a>
-                <a href="https://twitter.com/printvgi" target="_blank" rel="noreferrer">
+                <a href="https://twitter.com/printvgi" target="_blank" rel="noopener noreferrer">
                   <FaTwitterSquare />
                 </a>
-                <a href="https://www.linkedin.com/company/488282/admin/" target="_blank" rel="noreferrer">
+                <a href="https://www.linkedin.com/company/488282/admin/" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin />
                 </a>
-                <a href="https://www.instagram.com/visiongraphicsinc/" target="_blank" rel="noreferrer">
+                <a href="https://www.instagram.com/visiongraphicsinc/" target="_blank" rel="noopener noreferrer">
                   <FaInstagram />
                 </a>
-                <a href="https://www.youtube.com/channel/UCpEmhh4qrgYw5DRkEYFakEA" target="_blank" rel="noreferrer">
+                <a href="https://www.youtube.com/channel/UCpEmhh4qrgYw5DRkEYFakEA" target="_blank" rel="noopener noreferrer">
                   <FaYoutubeSquare />
                 </a>
               </div>
@@ -144,7 +144,7 @@ const VisionFooter = props => {
               <p>Phone</p>
             </div>
             <div className="info">
-              <a href="tel:18008334263" target="_blank" rel="noreferrer">1-800-833-4263</a>
+              <a href="tel:18008334263" target="_blank" rel="noopener noreferrer">1-800-833-4263</a>
             </div>
           </div>  
           <div className="info-piece">
@@ -152,7 +152,7 @@ const VisionFooter = props => {
               Local
             </div>
             <div className="info">
-              <a href="tel:3033205411" target="_blank" rel="noreferrer">303-320-5411</a>
+              <a href="tel:3033205411" target="_blank" rel="noopener noreferrer">303-320-5411</a>
             </div>
           </div>  
           <div className="info-piece">
@@ -160,14 +160,14 @@ const VisionFooter = props => {
               Email
             </div>
             <div className="info">
-              <a href="mailto:webinfo@visiongraphics-inc.com" target="_blank" rel="noreferrer">webinfo@visiongraphics-inc.com</a>
+              <a href="mailto:webinfo@visiongraphics-inc.com" target="_blank" rel="noopener noreferrer">webinfo@visiongraphics-inc.com</a>
             </div>
           </div>          
         </div>
       </div>
       <div className="copyright-bar">
         <p>Copyright © 2020 Vision Graphics. All Rights Reserved.</p>
-        <p><a href="https://visiongraphics-inc.com/hipaa-compliance/" target="_blank" rel="noreferrer">HIPAA Compliance</a></p>
+        <p><a href="https://visiongraphics-inc.com/hipaa-compliance/" target="_blank" rel="noopener noreferrer">HIPAA Compliance</a></p>
         <p>Web Design by Anchor Wave</p>
       </div>
     </Wrap>

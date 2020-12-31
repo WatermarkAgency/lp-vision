@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 // import { RichText } from 'wmk-lib'
 import styled from 'styled-components'
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { IoMdArrowDropright } from 'react-icons/io'
 import Theme from '../../../vars/ThemeOptions'

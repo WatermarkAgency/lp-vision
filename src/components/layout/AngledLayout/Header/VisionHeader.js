@@ -1,7 +1,7 @@
 import React from "react";
 import { ContentfulLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import styled from "styled-components";
 import Theme from "../../../../vars/ThemeOptions"
 
