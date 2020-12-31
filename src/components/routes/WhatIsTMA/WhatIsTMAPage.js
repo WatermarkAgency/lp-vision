@@ -188,7 +188,7 @@ const WhatIsVisionsTMA = ({ data }) => {
   const [showForm, setShowForm] = useState(false);
   const { lp } = data;
   // console.log(data)
-  const { title, shortText1, shortText2, shortText3, shortText4, shortText5, shortText6, shortText7, shortText8, richText1, richText2, richText3, richText4, file1, file2 } = lp;
+  const { shortText1, shortText2, shortText3, shortText4, shortText5, shortText6, shortText7, shortText8, richText1, richText2, richText3, richText4, file1, file2 } = lp;
   const previewFluid = get(file2, "fluid")
   const previewTitle = get(file2, "title")
 

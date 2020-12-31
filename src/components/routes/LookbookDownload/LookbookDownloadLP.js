@@ -23,7 +23,7 @@ const Wrap = styled.div`
 const LookbookDownloadLP = ({ data }) => {
   const { lp } = data;
   // console.log(data)
-  const { shortText1, shortText2, shortText3, shortText4, richText1, richText2, files, file1, file2 } = lp;
+  const { shortText1, shortText2, shortText3, shortText4, richText1, richText2, files } = lp;
   return (
     <Wrap>
       <LBHeaderAndHero titleLine1={shortText1} titleLine2={shortText2} bg={files[0]} />

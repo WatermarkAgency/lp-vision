@@ -33,7 +33,7 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
               <p className="cta-copy-line-2">
                 Tangible Marketing Automation.
               </p>
-              <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noreferrer">
+              <a href="https://visiongraphics.netlify.app/lp/tangible-marketing-automation" target="_blank" rel="noopener noreferrer">
                 Download our White Paper Today!
               </a>
             </div>
