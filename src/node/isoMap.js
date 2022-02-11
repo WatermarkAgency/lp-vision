@@ -1,26 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql } from 'gatsby'
-import Header from '../components/routes/IsometricMap/Layout/Header'
-import Footer from '../components/routes/IsometricMap/Layout/Footer'
-import IsoMapPage from '../components/routes/IsometricMap/IsoMapPage'
- 
-const Wrap = styled.div`
- 
-`
- 
+import React from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
+import Header from "../components/routes/IsometricMap/Layout/Header";
+import Footer from "../components/routes/IsometricMap/Layout/Footer";
+import IsoMapPage from "../components/routes/IsometricMap/IsoMapPage";
+
+const Wrap = styled.div``;
+
 const isoMap = ({ pageContext, data }) => {
   // console.log("sectionsData: ", data.isoMap.sections)
+  console.log(data.isoMap);
   return (
     <Wrap>
       <Header />
       <IsoMapPage sectionsData={data.isoMap.sections} heroBG={data.heroBG} />
       <Footer />
     </Wrap>
-  )
-}
- 
-export default isoMap
+  );
+};
+
+export default isoMap;
 
 export const query = graphql`
   query isoMapQuery($slug: String!) {
@@ -52,10 +51,10 @@ export const query = graphql`
         }
       }
     }
-    heroBG: contentfulAsset(title: {eq: "Iso Map Hero BG"}) {
-      file { 
+    heroBG: contentfulAsset(title: { eq: "Iso Map Hero BG" }) {
+      file {
         url
       }
     }
   }
-`
+`;

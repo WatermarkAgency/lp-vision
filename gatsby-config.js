@@ -66,13 +66,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        custom: {
-          families: ["Atlanta"],
-          urls: ["/fonts/fonts.css"],
-        },
-      },
+        fonts: [`poppins\:300,400,400i,500,600`, `ibm plex sans\:400,500,600,700`],
+        display: "swap"
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
