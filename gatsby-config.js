@@ -10,23 +10,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-image`,
     /* CONTENTFUL DELIVERY */
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-      }
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
     },
-    /* CONTENTFUL PREVIEW API */
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: process.env.CONTENTFUL_SPACE_ID,
-    //     accessToken: process.env.CONTENTFUL_PREVIEW_TOKEN,
-    //     host: `preview.contentful.com`,
-    //   },
-    // },
     {
       resolve: `gatsby-plugin-styled-components`
     },

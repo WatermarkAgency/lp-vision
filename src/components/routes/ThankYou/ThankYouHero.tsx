@@ -1,7 +1,7 @@
 import React from "react";
-import Img from "gatsby-image";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+import { WmkImage } from "wmk-image";
 
 const Wrap = styled(Container)`
   position: relative;
@@ -44,7 +44,7 @@ const TYHero = ({ bgImage, headline }) => {
     <Wrap fluid>
       {fluid && (
         <div className="bg-image-wrap">
-          <Img fluid={fluid} alt={bgImage.title} />
+          {/* <Img fluid={fluid} alt={bgImage.title} /> */}
         </div>
       )}
       <Row style={{width: '100%',padding: '0 6vw'}}>

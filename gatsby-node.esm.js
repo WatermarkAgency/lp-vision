@@ -1,31 +1,11 @@
-import Theme from "./src/vars/ThemeOptions.ts";
-
 const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
-  createRedirect({
-    fromPath: "/",
-    toPath: `${Theme.paths.home}`,
-    isPermanent: true,
-    redirectInBrowser: true
-  });
   const pageTemplate = path.resolve("./src/node/page.tsx");
   const pageAngledTemplate = path.resolve("./src/node/pageAngled.tsx");
   const tyTemplate = path.resolve("./src/node/ty.tsx");
   const isoTemplate = path.resolve("./src/node/isoMap.tsx");
-  createRedirect({
-    fromPath: "/home",
-    toPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true
-  });
-  createRedirect({
-    fromPath: `${Theme.paths.home}`,
-    toPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true
-  });
   return graphql(`
     {
       pages: allContentfulLandingPages {
