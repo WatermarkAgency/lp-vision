@@ -1,4 +1,4 @@
-import Theme from "./src/vars/ThemeOptions";
+import Theme from "./src/vars/ThemeOptions.ts";
 
 const path = require(`path`);
 
