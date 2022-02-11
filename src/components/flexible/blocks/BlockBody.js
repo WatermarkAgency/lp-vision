@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from "react";
 
 const Body = props => (
     <h2>Body {console.log(props)}</h2>

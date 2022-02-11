@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from "react";
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
 import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
@@ -20,12 +20,12 @@ const Popup = ({ data, sectionIndex, pieceIndex, updateOpenPiece }) => {
         <button className="close-button" onClick={() => updateOpenPiece(null)}><p><AiOutlineClose /></p> <p>RETURN</p></button>
         <Row className="content-wrap">
           <Col sm={12} md={5} className="image-wrap">
-            <Img fluid={fluid} alt={image.title} />
+            {/* <Img fluid={fluid} alt={image.title} /> */}
           </Col>
           <Col sm={12} md={7} className="copy-wrap">
             <p className="section">{section}</p>
             <p className="title">{title}</p>
-            {documentToReactComponents(copy.json)}
+            {/* {documentToReactComponents(copy.json)} */}
             <div className="cta-wrap">
               <p className="cta-copy-line-1">
                 See how our capabilities tie into

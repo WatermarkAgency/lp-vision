@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from "react";
 import styled from 'styled-components'
 import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import Theme from '../../../vars/ThemeOptions'
@@ -109,7 +109,7 @@ const ThankYou = ({ thankYouTitle, thankYouCopy, downloadButtonCopy, downloadPre
       <div className="image-and-download">
         <p className="learn-more">{thankYouCopy}</p>
         <div className="image-wrap">
-          <Img fluid={downloadPreview.fluid} alt={downloadPreview.title} />
+          {/* <Img fluid={downloadPreview.fluid} alt={downloadPreview.title} /> */}
           <div className="angled-line" />
         </div>
         <div className="download-button">

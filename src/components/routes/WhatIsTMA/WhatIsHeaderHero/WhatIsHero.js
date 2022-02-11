@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from "react";
 import styled from 'styled-components'
 import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import Theme from '../../../../vars/ThemeOptions'
@@ -56,7 +56,7 @@ const WhatIsHero = ({ titleLine1, titleLine2, bg }) => {
         {titleLine2}
       </h1>
       <div className="image-wrap">
-        <Img fluid={bg.fluid} alt={bg.title} />
+        {/* <Img fluid={bg.fluid} alt={bg.title} /> */}
         <div className="dark-overlay" />
       </div>        
     </HeroWrap>

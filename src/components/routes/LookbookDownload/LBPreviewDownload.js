@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from "react";
 import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import styled from 'styled-components'
 import Theme from '../../../vars/ThemeOptions'
@@ -40,7 +40,7 @@ const LBPreviewDownload = ({ preview, buttonCopy }) => {
     <WrapCont>
       <Row>
         <Col className="content-col">
-          <Img fluid={fluid} alt={title} />
+          {/* <Img fluid={fluid} alt={title} /> */}
           <a href="/assets/Lookbook_Project_Design_Options.pdf" role="download" download>
             {buttonCopy}
           </a>

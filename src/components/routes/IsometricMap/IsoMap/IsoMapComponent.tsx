@@ -85,7 +85,7 @@ const IsoMapPage = ({ sectionsData }) => {
               // style={{backgroundImage: `url(` + bg.file.url + `)`, backgroundSize: 'cover'}} 
               key={section.title + i}
             >
-              <Img fluid={fluid} alt={bg.title} />
+              {/* <Img fluid={fluid} alt={bg.title} /> */}
             </div>
           )
         })}
