@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { graphql, useStaticQuery } from "gatsby";
-import { ContentfulLogo } from "wmk-lib";
+import { WmkLink } from "wmk-link";
+import { Img, WmkImage } from "wmk-image";
 
 const Wrap = styled.footer`
   background: #2c2b2a;
   padding: 3vw 0;
   .center {
-      display: flex;
-      justify-content: center;
-      align-content: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }
 `;
 
@@ -19,14 +20,8 @@ const VisionFooter = () => {
     {
       options: contentfulGlobal {
         logo {
-          file {
-            contentType
-            url
-          }
-          fixed(width: 267, height: 67) {
-            ...GatsbyContentfulFixed
-          }
-          title
+          ...NodeImageFields
+          gatsbyImageData
         }
       }
     }
@@ -37,13 +32,9 @@ const VisionFooter = () => {
       <Container>
         <Row>
           <Col className="center">
-            <ContentfulLogo
-              contentType={logo.file.contentType}
-              fixed={logo.fixed}
-              alt={logo.title}
-              target="_self"
-              to={"https://visiongraphics-inc.com/"}
-            />
+            <WmkLink to={"https://visiongraphics-inc.com/"}>
+              <WmkImage image={new Img(logo)} />
+            </WmkLink>
           </Col>
         </Row>
       </Container>

@@ -1,15 +1,16 @@
 import React from "react";
-import { ContentfulLogo } from "wmk-lib";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import VisionAngle from "./VisionAngle";
+import { WmkLink } from "wmk-link";
+import { Img, WmkImage } from "wmk-image";
 
 const HeaderWrap = styled.div`
-position: relative;
-.angle {
+  position: relative;
+  .angle {
     position: absolute;
-    opacity: .85;
-}
+    opacity: 0.85;
+  }
 `;
 
 const Wrap = styled.div`
@@ -21,14 +22,8 @@ const VisionHeader = () => {
     {
       options: contentfulGlobal {
         logo {
-          file {
-            contentType
-            url
-          }
-          fixed(width: 267, height: 67) {
-            ...GatsbyContentfulFixed
-          }
-          title
+          ...NodeImageFields
+          gatsbyImageData
         }
       }
     }
@@ -37,13 +32,9 @@ const VisionHeader = () => {
   return (
     <HeaderWrap>
       <Wrap>
-        <ContentfulLogo
-          contentType={logo.file.contentType}
-          fixed={logo.fixed}
-          alt={logo.title}
-          target="_self"
-          to={"https://visiongraphics-inc.com/"}
-        />
+        <WmkLink to={"https://visiongraphics-inc.com/"}>
+          <WmkImage image={new Img(logo)} />
+        </WmkLink>
       </Wrap>
       <VisionAngle />
     </HeaderWrap>

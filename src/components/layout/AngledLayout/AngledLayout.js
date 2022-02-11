@@ -7,7 +7,6 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-// import { useStaticQuery, graphql } from "gatsby";
 import { MainLayout } from "wmk-lib";
 import styled from 'styled-components';
 

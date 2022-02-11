@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
+// import SharpSpringForm from "../components/common/SharpForm";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -19,16 +20,17 @@ const MessageWrap = styled(Container)`
 `;
 
 export default ({ pageContext, data }) => {
-  const { ty } = data;
-  const { headline, image, message } = ty;
+  const { lp } = data;
+  const { headline, image, message } = lp;
+  const { copy } = message ? message : { copy: null };
   return (
     <Layout>
       <TYHero bgImage={image} headline={headline} />
       <MessageWrap fluid>
         <Container>
-          <Row>
+          <Row className="flex-column">
             <Col>
-              <h2 className="message">{message.copy}</h2>
+              <div className="message">{copy}</div>
             </Col>
           </Row>
         </Container>
@@ -38,19 +40,24 @@ export default ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query lpQuery($slug: String!) {
-    ty: contentfulThankYouPages(slug: { eq: $slug }) {
+  query pageQuery($slug: String!) {
+    lp: contentfulLandingPages(slug: { eq: $slug }) {
       slug
       title
       headline
       image: backgroundImage {
-        fluid(maxWidth: 1600, quality: 90) {
-          ...GatsbyContentfulFluid
-        }
-        title
+        ...NodeImageFields
+        gatsbyImageData
       }
       message {
         copy: message
+      }
+      code: marketingAutomationForm {
+        title
+        scriptSrc
+        formId
+        formDomain
+        account
       }
     }
   }

@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
-// import SharpSpringForm from "../components/common/SharpForm";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -20,27 +19,17 @@ const MessageWrap = styled(Container)`
 `;
 
 export default ({ pageContext, data }) => {
-  const { lp } = data;
-  const { headline, image, message } = lp;
-  const { copy } = message ? message : { copy: null };
+  const { ty } = data;
+  const { headline, image, message } = ty;
   return (
     <Layout>
       <TYHero bgImage={image} headline={headline} />
       <MessageWrap fluid>
         <Container>
-          <Row className="flex-column">
+          <Row>
             <Col>
-              <div className="message">{copy}</div>
+              <h2 className="message">{message.copy}</h2>
             </Col>
-            {/* <Col>
-              <SharpSpringForm
-                account={code.account}
-                formID={code.formID}
-                formDomain={code.formDomain}
-                scriptSrc={code.scriptSrc}
-                title={code.title}
-              />
-            </Col> */}
           </Row>
         </Container>
       </MessageWrap>
@@ -49,26 +38,17 @@ export default ({ pageContext, data }) => {
 };
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
-    lp: contentfulLandingPages(slug: { eq: $slug }) {
+  query lpQuery($slug: String!) {
+    ty: contentfulThankYouPages(slug: { eq: $slug }) {
       slug
       title
       headline
       image: backgroundImage {
-        fluid(maxWidth: 1600, quality: 90) {
-          ...GatsbyContentfulFluid
-        }
-        title
+        ...NodeImageFields
+        gatsbyImageData
       }
       message {
         copy: message
-      }
-      code: marketingAutomationForm {
-        title
-        scriptSrc
-        formId
-        formDomain
-        account
       }
     }
   }

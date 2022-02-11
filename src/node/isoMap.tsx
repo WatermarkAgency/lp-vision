@@ -29,32 +29,24 @@ export const query = graphql`
       sections {
         title
         backgroundOnHover {
-          title
-          fluid(maxWidth: 3080, quality: 100) {
-            ...GatsbyContentfulFluid
-          }
-          file {
-            url
-          }
+          ...NodeImageFields
+          gatsbyImageData
         }
         sectionPieces {
           title
           copy {
-            json
+            raw
           }
           pieceImage {
-            title
-            fluid {
-              ...GatsbyContentfulFluid
-            }
+            ...NodeImageFields
+            gatsbyImageData
           }
         }
       }
     }
     heroBG: contentfulAsset(title: { eq: "Iso Map Hero BG" }) {
-      file {
-        url
-      }
+      ...NodeImageFields
+      gatsbyImageData
     }
   }
 `;

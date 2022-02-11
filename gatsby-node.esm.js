@@ -10,10 +10,10 @@ exports.createPages = ({ graphql, actions }) => {
     isPermanent: true,
     redirectInBrowser: true
   });
-  const pageTemplate = path.resolve("./src/node/page.js");
-  const pageAngledTemplate = path.resolve("./src/node/pageAngled.js");
-  const tyTemplate = path.resolve("./src/node/ty.js");
-  const isoTemplate = path.resolve("./src/node/isoMap.js");
+  const pageTemplate = path.resolve("./src/node/page.tsx");
+  const pageAngledTemplate = path.resolve("./src/node/pageAngled.tsx");
+  const tyTemplate = path.resolve("./src/node/ty.tsx");
+  const isoTemplate = path.resolve("./src/node/isoMap.tsx");
   createRedirect({
     fromPath: "/home",
     toPath: `/`,
@@ -61,13 +61,13 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
       throw result.errors;
     }
 
     // Create site pages
-    result.data.pages.edges.forEach(edge => {
+    result.data.pages.edges.forEach((edge) => {
       createPage({
         // Path for this page — required
         path: `lp/${edge.node.slug}`,
@@ -77,7 +77,7 @@ exports.createPages = ({ graphql, actions }) => {
     });
 
     // Create angled site pages
-    result.data.pagesAngled.edges.forEach(edge => {
+    result.data.pagesAngled.edges.forEach((edge) => {
       createPage({
         // Path for this page — required
         path: `lp/${edge.node.slug}`,
@@ -87,7 +87,7 @@ exports.createPages = ({ graphql, actions }) => {
     });
 
     // Create site pages
-    result.data.thanks.edges.forEach(edge => {
+    result.data.thanks.edges.forEach((edge) => {
       createPage({
         // Path for this page — required
         path: `ty/${edge.node.slug}`,
@@ -97,7 +97,7 @@ exports.createPages = ({ graphql, actions }) => {
     });
 
     // Create isometric map page
-    result.data.isoMap.edges.forEach(edge => {
+    result.data.isoMap.edges.forEach((edge) => {
       createPage({
         // Path for this page — required
         path: `/${edge.node.slug}`,
