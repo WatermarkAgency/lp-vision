@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import Popup from './Popup'
 import PopupButton from './PopupButton'
 import HoverSection from './HoverSection'

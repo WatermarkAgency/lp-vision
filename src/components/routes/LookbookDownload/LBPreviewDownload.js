@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import styled from 'styled-components'
 import Theme from '../../../vars/ThemeOptions'
 import { Container, Row, Col } from 'react-bootstrap'

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
-import Img from 'gatsby-image'
+import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { AiOutlineClose } from 'react-icons/ai'
 

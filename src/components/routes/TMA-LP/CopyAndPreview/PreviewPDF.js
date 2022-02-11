@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Img from 'gatsby-image'
+import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-bootstrap'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'

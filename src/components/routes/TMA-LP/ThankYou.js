@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
 import Theme from '../../../vars/ThemeOptions'
  
 const Wrap = styled.div`
