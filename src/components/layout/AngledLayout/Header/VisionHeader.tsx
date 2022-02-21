@@ -4,7 +4,9 @@ import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import Theme from "../../../../vars/ThemeOptions";
 import { WmkLink } from "wmk-link";
-import { Img, WmkImage } from "wmk-image";
+import { SiteMetaDataFields } from "../../../../fragments/NodeSiteMetadata";
+import OneVisionLogo from "../../OneVisionLogo";
+import { COLORS } from "../../../../vars/colors";
 
 const StyledHeaderWrap = styled.div`
   position: relative;
@@ -21,7 +23,7 @@ const StyledHeaderWrap = styled.div`
     z-index: -10;
     height: 20vw;
     width: 110%;
-    background: ${Theme.hex("orange")};
+    background: ${COLORS.LIGHT_BLUE};
     transform: ${Theme.transform.angle};
     border-bottom: 10px solid gray;
   }
@@ -39,13 +41,10 @@ const StyledHeaderWrap = styled.div`
 `;
 
 const VisionHeader = () => {
-  const { options } = useStaticQuery(graphql`
+  const data: { site: SiteMetaDataFields } = useStaticQuery(graphql`
     {
-      options: contentfulGlobal {
-        logoWhite {
-          ...NodeImageFields
-          gatsbyImageData
-        }
+      site {
+        ...SiteMetadataFields
       }
     }
   `);
@@ -53,8 +52,8 @@ const VisionHeader = () => {
     <StyledHeaderWrap>
       <Container>
         <div className="logo-wrap">
-          <WmkLink to={"https://visiongraphics-inc.com/"}>
-            <WmkImage image={new Img(options.logoWhite)} />
+          <WmkLink to={data.site.siteMetadata.homeUrl}>
+            <OneVisionLogo />
           </WmkLink>
         </div>
       </Container>

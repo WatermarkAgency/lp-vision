@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
-import { WmkImage } from "wmk-image";
+import { Img, WmkImage } from "wmk-image";
+import { COLORS } from "../../../vars/colors";
 
 const Wrap = styled(Container)`
   position: relative;
@@ -24,7 +25,7 @@ const Wrap = styled(Container)`
   .headline {
     color: white;
     padding: 0 1rem;
-    ::before {
+    &::before {
       content: "";
       position: absolute;
       left: 0;
@@ -33,22 +34,17 @@ const Wrap = styled(Container)`
       width: 8px;
       min-height: 90px;
       transform: translateY(-50%);
-      background: #f15c2b;
+      background: ${COLORS.LIGHT_BLUE};
     }
   }
 `;
 
-const TYHero = ({ bgImage, headline }) => {
-  const { fluid } = bgImage ? bgImage : { fluid: null };
+const TYHero = ({ bgImage, headline }: { bgImage: Img; headline: string }) => {
   return (
     <Wrap fluid>
-      {fluid && (
-        <div className="bg-image-wrap">
-          {/* <Img fluid={fluid} alt={bgImage.title} /> */}
-        </div>
-      )}
-      <Row style={{width: '100%',padding: '0 6vw'}}>
-        <Col >
+      <WmkImage image={bgImage} />
+      <Row style={{ width: "100%", padding: "0 6vw" }}>
+        <Col>
           <h1 className="headline">{headline}</h1>
         </Col>
       </Row>

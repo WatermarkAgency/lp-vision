@@ -14,7 +14,7 @@ import Form from './Form'
 const growOnHover = `
   transform: scale(1);
   transition: all .3s ease;
-  :hover {
+  &:hover {
     transform: scale(1.1);
     transition: all .3s ease;
   }
@@ -45,7 +45,7 @@ const Wrap = styled.div`
     clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
     transform: scale(1);
     transition: all .3s ease;
-    :hover {
+    &:hover {
       transform: scale(1.1);
       transition: all .3s ease;
     }
@@ -85,7 +85,7 @@ const CTA = styled.a`
   clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
   transform: scale(1);
   transition: all .3s ease;
-  :hover {
+  &:hover {
     color: white;
     text-decoration: none;
     transform: scale(1.1);
@@ -111,7 +111,7 @@ const LeftCol = styled(Col)`
       width: 20rem;
       font-weight: bold;
       ${growOnHover}
-      :hover {
+      &:hover {
         text-decoration: none;
       }
     }

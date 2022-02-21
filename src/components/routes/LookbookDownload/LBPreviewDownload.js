@@ -24,7 +24,7 @@ const WrapCont = styled(Container)`
       clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
       transform: scale(1);
       transition: transform .3s ease;
-      :hover {
+      &:hover {
         text-decoration: none;
         transform: scale(1.1);
         transition: transform .3s ease;

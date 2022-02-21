@@ -34,13 +34,13 @@ const Wrap = styled.div`
         font-size: 1.1rem;
         font-weight: 200;
         a {
-          :hover {
+          &:hover {
             text-decoration: none;
           }
           color: white;
           &.map {
             color: ${visOrange};
-            :hover {
+            &:hover {
               color: white;
             }
           }
@@ -51,7 +51,7 @@ const Wrap = styled.div`
             color: ${visOrange};
             margin-right: 2px;
             font-size: 1.4rem;
-            :hover {
+            &:hover {
               color: white;
             }
           }
@@ -73,7 +73,7 @@ const Wrap = styled.div`
       margin-bottom: 5px;
       a {
         color: #898888;
-        :hover {
+        &:hover {
           color: white;
           text-decoration: none;
         }

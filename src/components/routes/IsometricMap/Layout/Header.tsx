@@ -92,7 +92,7 @@ const Wrap = styled.div`
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            :hover {
+            &:hover {
               background: rgba(0,0,0,0.2);
             }       
             a {
@@ -105,7 +105,7 @@ const Wrap = styled.div`
               width: ${mobileMenuWidth};
               // height: 40px;
               line-height: 20px;
-              :hover {
+              &:hover {
                 text-decoration: none;
               }
             }
@@ -192,7 +192,7 @@ const Wrap = styled.div`
               font-weight: bold;
               a {
                 color: black;
-                :hover {
+                &:hover {
                   text-decoration: none;
                   color: ${visOrange};
                 }
@@ -212,7 +212,7 @@ const Wrap = styled.div`
                 color: white;
                 padding: 10px;
                 font-size: 13px;
-                :hover {
+                &:hover {
                   text-decoration: none;
                   background: rgba(0,0,0,0.2);
                 }
@@ -225,7 +225,7 @@ const Wrap = styled.div`
           a {
             color: black;
             font-weight: bold;
-            :hover {
+            &:hover {
               text-decoration: none;
               color: ${visOrange};
             }

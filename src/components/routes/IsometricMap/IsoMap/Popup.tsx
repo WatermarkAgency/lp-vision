@@ -117,7 +117,7 @@ const Wrap = styled.div`
             font-weight: 100;
             white-space: nowrap;
             transition: background .3s ease;
-            :hover {
+            &:hover {
               text-decoration: none;
               background: #db5427;
               transition: background .3s ease;

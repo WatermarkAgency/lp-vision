@@ -6,7 +6,7 @@ import Theme from "../../../vars/ThemeOptions";
 const growOnHover = `
   transform: scale(1);
   transition: all .3s ease;
-  :hover {
+  &:hover {
     transform: scale(1.1);
     transition: all .3s ease;
   }

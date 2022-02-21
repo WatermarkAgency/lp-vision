@@ -87,7 +87,7 @@ const InnerWrap = styled.div`
     color: white;
     font-weight: 500;
     font-size: 1.5rem;
-    :hover {
+    &:hover {
       text-decoration: none;
     }
     p:first-of-type {
@@ -125,7 +125,7 @@ const InnerWrap = styled.div`
       width: 15rem;
       padding: 2rem .5rem 3rem 1rem;
       clip-path: polygon(0% 15%, 100% 0%, 100% 90%, 10% 100%);
-      :hover {
+      &:hover {
         text-decoration: none;
       }
       p {
@@ -154,7 +154,7 @@ const InnerWrap = styled.div`
         border-radius: 50%;
         font-size: 25px;
         font-weight: 200;
-        :hover {
+        &:hover {
           text-decoration: none;
         }
       }

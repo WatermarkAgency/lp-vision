@@ -4,7 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { WmkLink } from "wmk-link";
 import { COLORS } from "../../../../vars/colors";
 import OneVisionLogo from "../../OneVisionLogo";
-
+import { graphql, useStaticQuery } from "gatsby";
+import { SiteMetaDataFields } from "../../../../fragments/NodeSiteMetadata";
 const Wrap = styled.footer`
   background: ${COLORS.DARK_BLUE};
   padding: 3vw 0;
@@ -16,12 +17,19 @@ const Wrap = styled.footer`
 `;
 
 const VisionFooter = () => {
+  const data: { site: SiteMetaDataFields } = useStaticQuery(graphql`
+    {
+      site {
+        ...SiteMetadataFields
+      }
+    }
+  `);
   return (
     <Wrap>
       <Container>
         <Row>
           <Col className="center">
-            <WmkLink to={"https://1vision.netlify.app/"}>
+            <WmkLink to={data.site.siteMetadata.homeUrl}>
               <OneVisionLogo color="white" />
             </WmkLink>
           </Col>

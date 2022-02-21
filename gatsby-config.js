@@ -4,9 +4,11 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `WMK Gatsby Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@WatermarkAgency`
+    title: `1Vision`,
+    description: `Streamlining Communications`,
+    author: `@WatermarkAgency`,
+    homeUrl: `https://1vision.netlify.app`,
+    baseUrl: `https://visiongraphics.netlify.app`
   },
   plugins: [
     `gatsby-plugin-netlify`,
@@ -16,8 +18,8 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
     },
     {
       resolve: `gatsby-plugin-styled-components`
