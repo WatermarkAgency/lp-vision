@@ -39,12 +39,14 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create site pages
     result.data.pages.edges.forEach((edge) => {
-      createPage({
-        // Path for this page — required
-        path: `lp/${edge.node.slug}`,
-        component: pageTemplate,
-        context: edge.node
-      });
+      if (!edge.node.slug.match(/schema/i)) {
+        createPage({
+          // Path for this page — required
+          path: `lp/${edge.node.slug}`,
+          component: pageTemplate,
+          context: edge.node
+        });
+      }
     });
 
     // Create angled site pages
