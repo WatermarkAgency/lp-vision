@@ -6,34 +6,28 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
 import { MainLayout } from "wmk-lib";
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import VisionHeader from "./Header/VisionHeader"
+import VisionHeader from "./Header/VisionHeader";
 import VisionFooter from "./Footer/VisionFooter";
 
 const Wrap = styled.div`
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactChildren }) => {
   return (
     <Wrap>
       <MainLayout
         Header={() => <VisionHeader />}
-        Footer={() => <VisionFooter />}
-      >
+        Footer={() => <VisionFooter />}>
         {children}
       </MainLayout>
     </Wrap>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

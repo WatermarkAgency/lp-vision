@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
-import { graphql, useStaticQuery } from "gatsby";
 import { WmkLink } from "wmk-link";
-import { Img, WmkImage } from "wmk-image";
+import { COLORS } from "../../../../vars/colors";
+import OneVisionLogo from "../../OneVisionLogo";
 
 const Wrap = styled.footer`
-  background: #2c2b2a;
+  background: ${COLORS.DARK_BLUE};
   padding: 3vw 0;
   .center {
     display: flex;
@@ -16,24 +16,13 @@ const Wrap = styled.footer`
 `;
 
 const VisionFooter = () => {
-  const { options } = useStaticQuery(graphql`
-    {
-      options: contentfulGlobal {
-        logo {
-          ...NodeImageFields
-          gatsbyImageData
-        }
-      }
-    }
-  `);
-  const { logo } = options;
   return (
     <Wrap>
       <Container>
         <Row>
           <Col className="center">
-            <WmkLink to={"https://visiongraphics-inc.com/"}>
-              <WmkImage image={new Img(logo)} />
+            <WmkLink to={"https://1vision.netlify.app/"}>
+              <OneVisionLogo color="white" />
             </WmkLink>
           </Col>
         </Row>

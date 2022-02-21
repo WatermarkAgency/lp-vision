@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
+import { ContentfulImageQuery } from "wmk-image";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -18,7 +19,7 @@ const MessageWrap = styled(Container)`
   }
 `;
 
-export default ({ pageContext, data }) => {
+export default ({ data }: ThankYouPageQuery) => {
   const { ty } = data;
   const { headline, image, message } = ty;
   return (
@@ -28,7 +29,9 @@ export default ({ pageContext, data }) => {
         <Container>
           <Row>
             <Col>
-              <h2 className="message">{message.copy}</h2>
+              {message?.copy ? (
+                <h2 className="message">{message.copy}</h2>
+              ) : null}
             </Col>
           </Row>
         </Container>
@@ -36,6 +39,18 @@ export default ({ pageContext, data }) => {
     </Layout>
   );
 };
+
+interface ThankYouPageQuery {
+  data: {
+    ty: {
+      slug: string;
+      title: string;
+      headline?: string;
+      image?: ContentfulImageQuery;
+      message?: { copy: string };
+    };
+  };
+}
 
 export const query = graphql`
   query lpQuery($slug: String!) {
