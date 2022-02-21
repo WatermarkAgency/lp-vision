@@ -32,14 +32,6 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-      isoMap: allContentfulIsometricMapPage {
-        edges {
-          node {
-            slug
-            title
-          }
-        }
-      }
     }
   `).then((result) => {
     if (result.errors) {
@@ -72,16 +64,6 @@ exports.createPages = ({ graphql, actions }) => {
         // Path for this page — required
         path: `ty/${edge.node.slug}`,
         component: tyTemplate,
-        context: edge.node
-      });
-    });
-
-    // Create isometric map page
-    result.data.isoMap.edges.forEach((edge) => {
-      createPage({
-        // Path for this page — required
-        path: `/${edge.node.slug}`,
-        component: isoTemplate,
         context: edge.node
       });
     });
