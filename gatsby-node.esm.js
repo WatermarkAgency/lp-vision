@@ -1,11 +1,10 @@
 const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
   const pageTemplate = path.resolve("./src/node/page.tsx");
   const pageAngledTemplate = path.resolve("./src/node/pageAngled.tsx");
   const tyTemplate = path.resolve("./src/node/ty.tsx");
-  const isoTemplate = path.resolve("./src/node/isoMap.tsx");
   return graphql(`
     {
       pages: allContentfulLandingPages {
