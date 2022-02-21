@@ -2,7 +2,7 @@ const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const pageTemplate = path.resolve("./src/node/page.tsx");
+  //const pageTemplate = path.resolve("./src/node/page.tsx");
   const pageAngledTemplate = path.resolve("./src/node/pageAngled.tsx");
   const tyTemplate = path.resolve("./src/node/ty.tsx");
   return graphql(`
@@ -37,17 +37,17 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors;
     }
 
-    // Create site pages
-    result.data.pages.edges.forEach((edge) => {
-      if (!edge.node.slug.match(/schema/i)) {
-        createPage({
-          // Path for this page — required
-          path: `lp/${edge.node.slug}`,
-          component: pageTemplate,
-          context: edge.node
-        });
-      }
-    });
+    // // Create site pages
+    // result.data.pages.edges.forEach((edge) => {
+    //   if (!edge.node.slug.match(/schema/i)) {
+    //     createPage({
+    //       // Path for this page — required
+    //       path: `lp/${edge.node.slug}`,
+    //       component: pageTemplate,
+    //       context: edge.node
+    //     });
+    //   }
+    // });
 
     // Create angled site pages
     result.data.pagesAngled.edges.forEach((edge) => {
