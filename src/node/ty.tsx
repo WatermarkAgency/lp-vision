@@ -8,14 +8,13 @@ import { ContentfulImageQuery, Img } from "wmk-image";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   .message {
     padding: 6vw 0;
-    margin: auto;
-    min-height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
   }
 `;
 
