@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
-import { ContentfulImageQuery } from "wmk-image";
+import { ContentfulImageQuery, Img } from "wmk-image";
 
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
@@ -24,7 +24,7 @@ export default ({ data }: ThankYouPageQuery) => {
   const { headline, image, message } = ty;
   return (
     <Layout>
-      <TYHero bgImage={image} headline={headline} />
+      <TYHero bgImage={new Img(image!)} headline={headline ? headline : ""} />
       <MessageWrap fluid>
         <Container>
           <Row>

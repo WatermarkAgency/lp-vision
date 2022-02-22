@@ -26,6 +26,7 @@ const VisionAngle = () => {
         xmlns="http://www.w3.org/2000/svg"
         width={winWidth}
         height={angleHeight}
+        //style={{ position: "relative", zIndex: 10 }}
         //viewBox="0 0 1920 97"
       >
         <path

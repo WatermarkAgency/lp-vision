@@ -11,17 +11,6 @@ const Wrap = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
-  .bg-image-wrap {
-    position: absolute;
-    z-index: -5;
-    width: 100%;
-    height: 100%;
-    filter: brightness(0.75);
-    .gatsby-image-wrapper {
-      width: 100%;
-      height: 100%;
-    }
-  }
   .headline {
     color: white;
     padding: 0 1rem;
@@ -42,7 +31,18 @@ const Wrap = styled(Container)`
 const TYHero = ({ bgImage, headline }: { bgImage: Img; headline: string }) => {
   return (
     <Wrap fluid>
-      <WmkImage image={bgImage} />
+      <WmkImage
+        image={bgImage}
+        style={{
+          position: "absolute",
+          height: "100%",
+          width: "100%",
+          top: 0,
+          left: 0,
+          zIndex: -1,
+          filter: `brightness(50%)`
+        }}
+      />
       <Row style={{ width: "100%", padding: "0 6vw" }}>
         <Col>
           <h1 className="headline">{headline}</h1>
