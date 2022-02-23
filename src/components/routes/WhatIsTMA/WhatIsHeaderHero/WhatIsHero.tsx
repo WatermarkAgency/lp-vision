@@ -1,7 +1,8 @@
 import * as React from "react";
-import styled from 'styled-components'
-import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
-import Theme from '../../../../vars/ThemeOptions'
+import styled from "styled-components";
+import { WmkImage } from "wmk-image";
+import Theme from "../../../../vars/ThemeOptions";
+import { WhatIsHeaderProps } from "./WhatIsHeaderHero";
 
 const HeroWrap = styled.div`
   position: relative;
@@ -11,11 +12,12 @@ const HeroWrap = styled.div`
   justify-content: center;
   align-items: center;
   padding: 13rem 0 10rem 0;
-  h1, h2 {
+  h1,
+  h2 {
     position: relative;
     z-index: 5;
-    color: ${Theme.hex('white')};
-    text-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+    color: ${Theme.hex("white")};
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
     text-align: center;
   }
   h2 {
@@ -29,7 +31,8 @@ const HeroWrap = styled.div`
     font-weight: bold;
   }
   .image-wrap {
-    .gatsby-image-wrapper, .dark-overlay {
+    .gatsby-image-wrapper,
+    .dark-overlay {
       width: 100%;
       height: 100%;
       position: absolute !important;
@@ -41,26 +44,22 @@ const HeroWrap = styled.div`
     }
     .dark-overlay {
       z-index: 2;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
   }
-`
- 
-const WhatIsHero = ({ titleLine1, titleLine2, bg }) => {
+`;
+
+const WhatIsHero = ({ titleLine1, titleLine2, bg }: WhatIsHeaderProps) => {
   return (
     <HeroWrap>
-      <h2>
-        {titleLine1}
-      </h2>
-      <h1>
-        {titleLine2}
-      </h1>
+      <h2>{titleLine1}</h2>
+      <h1>{titleLine2}</h1>
       <div className="image-wrap">
-        {/* <Img fluid={bg.fluid} alt={bg.title} /> */}
+        <WmkImage image={bg!} />
         <div className="dark-overlay" />
-      </div>        
+      </div>
     </HeroWrap>
-  )
-}
- 
-export default WhatIsHero
+  );
+};
+
+export default WhatIsHero;

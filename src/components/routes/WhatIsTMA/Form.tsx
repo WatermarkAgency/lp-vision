@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import Theme from "../../../vars/ThemeOptions";
@@ -10,7 +10,7 @@ const growOnHover = `
     transform: scale(1.1);
     transition: all .3s ease;
   }
-`
+`;
 
 const Wrap = styled.div`
   display: flex;
@@ -32,14 +32,21 @@ const Wrap = styled.div`
       .submit-col {
         display: flex;
         justify-content: center;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         input[type="submit"] {
           width: 10rem;
           background: ${Theme.hex("orange")};
           color: ${Theme.hex("white")};
           font-weight: bold;
           border: none;
-          clip-path: polygon(5% 0%, 100% 0%, 100% 60%, 95% 100%, 0% 100%, 0% 40%);
+          clip-path: polygon(
+            5% 0%,
+            100% 0%,
+            100% 60%,
+            95% 100%,
+            0% 100%,
+            0% 40%
+          );
           ${growOnHover}
         }
       }
@@ -101,19 +108,18 @@ const Wrap = styled.div`
   }
 `;
 
-
-const WhatIsTMAContactForm = ({ formSubmit }) => {
-  const [formSent, setFormSent] = useState(false)
+const WhatIsTMAContactForm = () => {
+  const [formSent, setFormSent] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     company: "",
     phone: "",
-    message: "",
+    message: ""
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const data = { ...formData };
     data[e.target.name] = e.target.value;
     setFormData(data);
@@ -131,7 +137,7 @@ const WhatIsTMAContactForm = ({ formSubmit }) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "whatIsTMAContactForm", ...formData }),
+      body: encode({ "form-name": "whatIsTMAContactForm", ...formData })
     })
       .then(() => console.log("Success!"))
       .catch((error) => console.log(error));
@@ -143,87 +149,100 @@ const WhatIsTMAContactForm = ({ formSubmit }) => {
   return (
     <Wrap id="form-section-wrap">
       <div className="form-wrap">
-        {!formSent 
-          ? <form netlify="true" onSubmit={handleSubmit} name="whatIsTMAContactForm">
-              <input type="hidden" name="form-name" value="whatIsTMAContactForm" />
-              <input type="hidden" name="isWhatIsTMAContactForm" value="1" />
-              <Container fluid>
-                <Row>
-                  <Col className="input-col" sm={12} md={6}>
-                    <input
-                      type="text"
-                      name="firstName"
-                      placeholder="First Name"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                  <Col className="input-col" sm={12} md={6}>
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder="Last Name"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="input-col">
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder="Email (Required)"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="input-col">
-                    <input
-                      type="text"
-                      name="company"
-                      placeholder="Company"
-                      value={formData.company}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="input-col">
-                    <input
-                      type="text"
-                      name="phone"
-                      placeholder="Phone Number"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="input-col">
-                    <input
-                      type="textarea"
-                      name="message"
-                      placeholder="Details (optional)"
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="input-col submit-col">
-                    <input type="submit" value="SUBMIT" />
-                  </Col>
-                </Row>
-              </Container>
-            </form>
-        : <div className="ty"><p>Thank you for getting in touch with us! We will reach out to you shortly.</p></div>  
-        }
-      </div>      
+        {!formSent ? (
+          <form
+            netlify="true"
+            onSubmit={handleSubmit}
+            name="whatIsTMAContactForm">
+            <input
+              type="hidden"
+              name="form-name"
+              value="whatIsTMAContactForm"
+            />
+            <input type="hidden" name="isWhatIsTMAContactForm" value="1" />
+            <Container fluid>
+              <Row>
+                <Col className="input-col" sm={12} md={6}>
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                </Col>
+                <Col className="input-col" sm={12} md={6}>
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="input-col">
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email (Required)"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="input-col">
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Company"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="input-col">
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="input-col">
+                  <input
+                    type="textarea"
+                    name="message"
+                    placeholder="Details (optional)"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="input-col submit-col">
+                  <input type="submit" value="SUBMIT" />
+                </Col>
+              </Row>
+            </Container>
+          </form>
+        ) : (
+          <div className="ty">
+            <p>
+              Thank you for getting in touch with us! We will reach out to you
+              shortly.
+            </p>
+          </div>
+        )}
+      </div>
     </Wrap>
-  )
+  );
 };
 
 export default WhatIsTMAContactForm;

@@ -43,7 +43,7 @@ const WrapCont = styled(Container)`
             margin-bottom: 0;
             max-width: 90%;
           }
-          :nth-of-type(2) {
+          &:nth-of-type(2) {
             top: -4px;
           }
         }

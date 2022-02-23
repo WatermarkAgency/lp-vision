@@ -33,6 +33,7 @@
     "wmk-lib": "^2.2.5",
     "wmk-link": "^1.0.6",
     "wmk-menu": "^1.0.9",
+    "wmk-netlify-form": "^1.1.3",
     "wmk-rich-text": "^1.0.1",
     "wmk-seo": "^1.0.3"
   },
