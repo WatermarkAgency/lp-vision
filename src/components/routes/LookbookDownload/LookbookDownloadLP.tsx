@@ -5,7 +5,6 @@ import { RichText } from "wmk-rich-text";
 import { AngledLandingPageQuery } from "../../../node/pageAngled";
 import WhatIsHeaderAndHero from "../WhatIsTMA/WhatIsHeaderHero/WhatIsHeaderHero";
 import LBBotCopy from "./LBBotCopy";
-import LBHeaderAndHero from "./LBHeaderAndHero/LBHeaderAndHero";
 import LBMainCopy from "./LBMainCopy";
 import LBPreviewDownload from "./LBPreviewDownload";
 
@@ -56,7 +55,7 @@ const LookbookDownloadLP = ({
           richText1={new RichText(richText1!)}
           richText2={new RichText(richText2!)}
         />
-        <LBBotCopy shortText3={shortText3} />
+        <LBBotCopy shortText3={shortText3!} />
       </div>
     </Wrap>
   );

@@ -17,7 +17,7 @@ const WrapCont = styled(Container)`
   }
 `;
 
-const LBBotCopy = ({ shortText3 }: { shorText3: string }) => {
+const LBBotCopy = ({ shortText3 }: { shortText3: string }) => {
   return (
     <WrapCont>
       <p>{shortText3}</p>
