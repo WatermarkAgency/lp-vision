@@ -25,7 +25,7 @@ const StyledHeaderWrap = styled.div`
     width: 110%;
     background: ${COLORS.DARK_BLUE};
     transform: ${Theme.transform.angle};
-    border-bottom: 10px solid gray;
+    border-bottom: 10px solid ${COLORS.LIGHT_BLUE};
   }
   @media only screen and (max-width: 800px) {
     .logo-wrap {
