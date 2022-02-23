@@ -14,7 +14,7 @@ const StyledHeaderWrap = styled.div`
     width: 25%;
     height: auto;
     padding: 5% 0;
-    margin-bottom: 5vw;
+    margin-bottom: 6vw;
   }
   .bg-div {
     position: absolute;
@@ -23,7 +23,7 @@ const StyledHeaderWrap = styled.div`
     z-index: -10;
     height: 20vw;
     width: 110%;
-    background: ${COLORS.LIGHT_BLUE};
+    background: ${COLORS.DARK_BLUE};
     transform: ${Theme.transform.angle};
     border-bottom: 10px solid gray;
   }
@@ -53,7 +53,7 @@ const VisionHeader = () => {
       <Container>
         <div className="logo-wrap">
           <WmkLink to={data.site.siteMetadata.homeUrl}>
-            <OneVisionLogo />
+            <OneVisionLogo color="white" />
           </WmkLink>
         </div>
       </Container>

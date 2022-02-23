@@ -2,6 +2,37 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import Theme from "../../../vars/ThemeOptions";
+import { COLORS } from "../../../vars/colors";
+
+export const FormWrap = styled.div`
+  margin: 5vw 20vw;
+  .row {
+    & > div {
+      padding-left: 5px;
+      padding-right: 5px;
+      margin: 7px 0;
+      input,
+      select {
+        width: 100%;
+        border: 2px solid ${COLORS.LIGHT_BLUE};
+        padding: 5px 10px;
+      }
+    }
+    .submit-col {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+      input[type="submit"] {
+        width: 20%;
+        background: ${COLORS.LIGHT_BLUE};
+        color: ${Theme.hex("white")};
+        font-weight: bold;
+        border: none;
+        transform: ${Theme.transform.angle};
+      }
+    }
+  }
+`;
 
 const Wrap = styled.div`
   display: flex;
@@ -16,7 +47,7 @@ const Wrap = styled.div`
         margin: 7px 0;
         input {
           width: 100%;
-          border: 2px solid ${Theme.hex("orange")};
+          border: 2px solid ${COLORS.LIGHT_BLUE};
           padding: 5px 10px;
         }
       }
@@ -26,7 +57,7 @@ const Wrap = styled.div`
         margin-top: 1.5rem;
         input[type="submit"] {
           width: 20%;
-          background: ${Theme.hex("orange")};
+          background: ${COLORS.LIGHT_BLUE};
           color: ${Theme.hex("white")};
           font-weight: bold;
           border: none;
@@ -39,7 +70,7 @@ const Wrap = styled.div`
     width: 110%;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid ${Theme.hex("orange")};
+    border-bottom: 2px solid ${COLORS.LIGHT_BLUE};
     transform: ${Theme.transform.angle};
   }
   .form-copy-wrap {
@@ -65,7 +96,7 @@ const Wrap = styled.div`
     p {
       margin: 10vw 15vw;
       text-align: center;
-    }    
+    }
   }
 
   @media only screen and (min-width: 1450px) {
@@ -112,7 +143,6 @@ const Wrap = styled.div`
   }
 `;
 
-
 const SSForm = ({ formCopy, download, formSubmit }) => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -122,7 +152,7 @@ const SSForm = ({ formCopy, download, formSubmit }) => {
     address: "",
     city: "",
     state: "",
-    zip: "",
+    zip: ""
   });
 
   const handleChange = (e) => {
@@ -143,7 +173,7 @@ const SSForm = ({ formCopy, download, formSubmit }) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "tangible", ...formData }),
+      body: encode({ "form-name": "tangible", ...formData })
     })
       .then(() => console.log("Success!"))
       .catch((error) => console.log(error));
@@ -252,9 +282,20 @@ const SSForm = ({ formCopy, download, formSubmit }) => {
             </Row>
           </Container>
         </form>
-      </div>      
+      </div>
     </Wrap>
-  )
+  );
 };
 
 export default SSForm;
+
+export const FormHeader = ({ formCopy }: { formCopy: string }) => {
+  return (
+    <Wrap id="form-section-wrap">
+      <div className="form-copy-angle" />
+      <div className="form-copy-wrap">
+        <h3>{formCopy}</h3>
+      </div>
+    </Wrap>
+  );
+};

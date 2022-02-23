@@ -39,7 +39,7 @@ const Wrap = styled.div`
       background: ${Theme.hex("white")};
       button {
         border: none;
-        background: ${Theme.hex("orange")};
+        background: ${COLORS.LIGHT_BLUE};
         color: ${Theme.hex("white")};
         text-transform: uppercase;
         font-size: 0.9rem;
@@ -59,24 +59,26 @@ const Wrap = styled.div`
 
 const AngledPageTitle = ({ firstLine, secondLine, subtitle, buttonText }) => {
   return (
-    <Wrap>
-      <Container>
-        <div>
-          <h1>
-            {firstLine}
-            <span className="block-span">{secondLine}</span>
-          </h1>
-          <p>{subtitle}</p>
+    <Container style={{ position: "relative", width: `100%` }} fluid>
+      <Wrap>
+        <Container>
+          <div>
+            <h1>
+              {firstLine}
+              <span className="block-span">{secondLine}</span>
+            </h1>
+            <p>{subtitle}</p>
+          </div>
+        </Container>
+        <div className="button-outer-wrap">
+          <div className="button-inner-wrap">
+            {/* <ScrollTo selector="#form-section-wrap"> */}
+            <button>{buttonText}</button>
+            {/* </ScrollTo> */}
+          </div>
         </div>
-      </Container>
-      <div className="button-outer-wrap">
-        <div className="button-inner-wrap">
-          {/* <ScrollTo selector="#form-section-wrap"> */}
-          <button>{buttonText}</button>
-          {/* </ScrollTo> */}
-        </div>
-      </div>
-    </Wrap>
+      </Wrap>
+    </Container>
   );
 };
 

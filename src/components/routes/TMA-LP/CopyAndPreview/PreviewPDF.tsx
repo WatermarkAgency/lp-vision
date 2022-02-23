@@ -1,17 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { WmkImage as Img, Img as ImgClass } from 'wmk-image'
-import styled from 'styled-components'
-import { Container, Row, Col } from 'react-bootstrap'
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import Theme from '../../../../vars/ThemeOptions'
- 
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Theme from "../../../../vars/ThemeOptions";
+import { WmkImage, Img } from "wmk-image";
+import { COLORS } from "../../../../vars/colors";
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   .slider-title {
-    font-size: .75rem;
-    color: ${Theme.hex('orange')};
+    font-size: 0.75rem;
+    color: ${COLORS.LIGHT_BLUE};
   }
   .container-fluid {
     position: relative;
@@ -26,7 +27,7 @@ const Wrap = styled.div`
       margin-left: 0;
       margin-right: 0;
       flex-wrap: nowrap;
-      transition: left .5s ease;
+      transition: left 0.5s ease;
       .slider-col {
         height: 100%;
         padding-left: 0;
@@ -44,12 +45,12 @@ const Wrap = styled.div`
       width: 100%;
       bottom: 0;
       left: 0%;
-      background: rgba(0,0,0,.5);
+      background: rgba(0, 0, 0, 0.5);
       .control-col {
         width: 50%;
         button {
           width: 100%;
-          color: ${Theme.hex('white')};
+          color: ${Theme.hex("white")};
           background: none;
           border: none;
           &.prev-button {
@@ -98,7 +99,7 @@ const Wrap = styled.div`
       top: 42vw;
     }
     .container-fluid {
-      top: 45vw; 
+      top: 45vw;
     }
   }
   @media only screen and (max-width: 497px) {
@@ -117,24 +118,22 @@ const Wrap = styled.div`
       top: 78vw;
     }
   }
-`
- 
-const PreviewPDF = ({ pages }) => {
-  // console.log(pages)
-  const [slideWidth, setSlideWidth] = useState(0)
-  const [active, setActive] = useState(0)
+`;
 
-  const slideRef = useRef()
+const PreviewPDF = ({ pages }: { pages: Img[] }) => {
+  // console.log(pages)
+  const [slideWidth, setSlideWidth] = useState(0);
+  const [active, setActive] = useState(0);
+
+  const slideRef = useRef();
 
   useEffect(() => {
     const resize = () => {
-        setSlideWidth(
-            slideRef.current.offsetWidth
-          );
-    }
-    resize()
-    window.addEventListener("resize",resize)
-    return () => window.removeEventListener("resize",resize)
+      setSlideWidth(slideRef.current.offsetWidth);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
   }, [active, slideWidth]);
 
   const updateActive = (dir, active) => {
@@ -159,26 +158,38 @@ const PreviewPDF = ({ pages }) => {
     <Wrap>
       <p className="slider-title">PREVIEW THE BOOK</p>
       <Container fluid>
-        <Row className="slider-row" style={{left: -slideWidth * active + 1}}>
+        <Row className="slider-row" style={{ left: -slideWidth * active + 1 }}>
           {pages.map((page, i) => {
-            return(
-              <Col xs={12} className="slider-col" ref={slideRef} key={page.title + i}>
-                <Img fluid={page.fluid} alt={page.title} />
-              </Col>     
-            )       
+            return (
+              <Col
+                xs={12}
+                className="slider-col"
+                ref={slideRef}
+                key={page?.title ? page.title : "" + i}>
+                <WmkImage image={page} />
+              </Col>
+            );
           })}
         </Row>
         <div className="control-row">
           <div className="control-col">
-            <button className="prev-button" onClick={() => updateActive("prev", active)} ><IoIosArrowBack/></button>
+            <button
+              className="prev-button"
+              onClick={() => updateActive("prev", active)}>
+              <IoIosArrowBack />
+            </button>
           </div>
           <div className="control-col">
-            <button className="next-button" onClick={() => updateActive("next", active)} ><IoIosArrowForward/></button>
+            <button
+              className="next-button"
+              onClick={() => updateActive("next", active)}>
+              <IoIosArrowForward />
+            </button>
           </div>
         </div>
-      </Container>      
+      </Container>
     </Wrap>
-  )
-}
- 
-export default PreviewPDF
+  );
+};
+
+export default PreviewPDF;
