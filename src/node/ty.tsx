@@ -5,7 +5,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import TYHero from "../components/routes/ThankYou/ThankYouHero";
 import styled from "styled-components";
 import { ContentfulImageQuery, Img } from "wmk-image";
-
+import { SiteMetaDataFields } from "../fragments/NodeSiteMetadata";
+import { WmkSeo } from "wmk-seo";
 const MessageWrap = styled(Container)`
   background: #f5f5f5;
   margin: auto;
@@ -16,13 +17,20 @@ const MessageWrap = styled(Container)`
   .message {
     padding: 6vw 0;
   }
+  min-height: 40vh;
 `;
 
 export default ({ data }: ThankYouPageQuery) => {
-  const { ty } = data;
+  const { ty, site } = data;
   const { headline, image, message } = ty;
   return (
     <Layout>
+      <WmkSeo.Meta
+        title={headline ? headline : "Thanks!"}
+        siteTitle={site.siteMetadata.title}
+        slug={ty.slug}
+        baseUrl={site.siteMetadata.baseUrl}
+      />
       <TYHero bgImage={new Img(image!)} headline={headline ? headline : ""} />
       <MessageWrap fluid>
         <Container>
@@ -48,6 +56,7 @@ interface ThankYouPageQuery {
       image?: ContentfulImageQuery;
       message?: { copy: string };
     };
+    site: SiteMetaDataFields;
   };
 }
 
@@ -64,6 +73,9 @@ export const query = graphql`
       message {
         copy: message
       }
+    }
+    site {
+      ...SiteMetadataFields
     }
   }
 `;
