@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { IoMdArrowDropright } from "react-icons/io";
 import styled from "styled-components";
 import WhatIsHeaderAndHero from "./WhatIsHeaderHero/WhatIsHeaderHero";
 import Theme from "../../../vars/ThemeOptions";
@@ -10,6 +9,7 @@ import { WmkImage, Img } from "wmk-image";
 import { RichTextReact } from "../../RichText/RichTextReact";
 import { RichText } from "wmk-rich-text";
 import { COLORS } from "../../../vars/colors";
+import { FormWrap } from "./Form";
 
 const growOnHover = `
   transform: scale(1);
@@ -167,27 +167,12 @@ const RightCol = styled(Col)`
     }
   }
 `;
-const FormWrap = styled.div`
-  &.hide {
-    padding-top: 0;
-    opacity: 0;
-    height: 0;
-    transition: all 0.3s ease;
-  }
-  &.show {
-    padding-top: 1rem;
-    opacity: 1;
-    height: auto;
-    transition: all 0.3s ease;
-  }
-`;
 
 const WhatIsVisionsTMA = ({
   data
 }: {
   data: { lp: AngledLandingPageQuery };
 }) => {
-  const [showForm, setShowForm] = useState(false);
   const { lp } = data;
   const {
     shortText1,
@@ -197,7 +182,6 @@ const WhatIsVisionsTMA = ({
     shortText5,
     shortText6,
     shortText7,
-    shortText8,
     richText1,
     richText2,
     richText3,
@@ -205,22 +189,6 @@ const WhatIsVisionsTMA = ({
     file1,
     file2
   } = lp;
-
-  const CustomListItem = ({
-    boldCopy,
-    copy
-  }: {
-    boldCopy: string;
-    copy: string;
-  }) => (
-    <div className="custom-li">
-      <IoMdArrowDropright size="6rem" />
-      <span>
-        <span>{boldCopy}</span>
-        {copy}
-      </span>
-    </div>
-  );
 
   return (
     <Wrap>

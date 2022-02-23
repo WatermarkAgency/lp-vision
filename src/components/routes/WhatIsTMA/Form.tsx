@@ -12,7 +12,7 @@ const growOnHover = `
   }
 `;
 
-const Wrap = styled.div`
+export const FormWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,7 +147,7 @@ const WhatIsTMAContactForm = () => {
   };
 
   return (
-    <Wrap id="form-section-wrap">
+    <FormWrap id="form-section-wrap">
       <div className="form-wrap">
         {!formSent ? (
           <form
@@ -241,7 +241,7 @@ const WhatIsTMAContactForm = () => {
           </div>
         )}
       </div>
-    </Wrap>
+    </FormWrap>
   );
 };
 
