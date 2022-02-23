@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
-import WhatIsHeaderAndHero from "./WhatIsHeaderHero/WhatIsHeaderHero";
 import Theme from "../../../vars/ThemeOptions";
 import { NetlifyForm } from "wmk-netlify-form";
 import { AngledLandingPageQuery } from "../../../node/pageAngled";
@@ -10,6 +9,7 @@ import { RichTextReact } from "../../RichText/RichTextReact";
 import { RichText } from "wmk-rich-text";
 import { COLORS } from "../../../vars/colors";
 import { FormWrap } from "./Form";
+import WhatIsHeaderAndHero from "./WhatIsHeaderHero/WhatIsHeaderHero";
 
 const growOnHover = `
   transform: scale(1);

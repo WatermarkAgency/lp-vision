@@ -66,7 +66,7 @@ export interface AngledLandingPageQuery {
   richText4?: {
     raw: string;
   };
-  files: ContentfulImageQuery;
+  files: ContentfulImageQuery[];
   file1: ContentfulImageQuery;
   file2: ContentfulImageQuery;
 }
